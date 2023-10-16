@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'FlickLAne',
             'email' => 'flicklane@gmail.com',
             'password' => Hash::make('12345678'),
-            'changepassword' => '12345678',
+            // 're-password' => '12345678',
             'role' => 'admin',
         ]);
     }

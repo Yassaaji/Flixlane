@@ -34,7 +34,7 @@ Route::post('/sesi/login', [SessionController::class, 'login'])->name('sesi-logi
 
 //register
 Route::get('/sesi-register', [SessionController::class, 'register'])->name('sesi-register');
-Route::post('/create', [SessionController::class, 'create'])->name('sesi-register2');
+Route::post('/create', [SessionController::class, 'create'])->name('submit.register');
 
 //logout
 Route::get('/sesi/logout', [SessionController::class,'logout']);
