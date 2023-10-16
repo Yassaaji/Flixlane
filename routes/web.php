@@ -20,17 +20,17 @@ use Inertia\Inertia;
 //     return Inertia::render('Welcome', [
 //     ]);
 // });
-// Route::middleware(['auth.custom'])->group(function () {
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// // Route::resource('home' ,\App\Http\Controllers\HomeController::class);
-// });
+Route::middleware(['auth'])->group(function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::resource('home' ,\App\Http\Controllers\HomeController::class);
+});
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Auth::routes();
 
 //login
 Route::get('/sesi', [SessionController::class, 'index'])->name('sesi-index');
-Route::post('/sesi/login', [SessionController::class, 'login'])->name('sesi-login');
+Route::post('login', [SessionController::class, 'login'])->name('sesi-login');
 
 //register
 Route::get('/sesi-register', [SessionController::class, 'register'])->name('sesi-register');

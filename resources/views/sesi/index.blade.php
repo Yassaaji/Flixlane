@@ -34,6 +34,7 @@
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                     <form action="{{ route('sesi-login') }}" method="POST">
+                        @csrf
                         <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                             <p class="lead fw-normal mb-4 me-3" style="font-size: 30px; color: #ffff"><strong>Login</strong></p>
                         </div>
@@ -64,7 +65,7 @@
                         </div>
 
                         <div class="text-center text-lg-start mt-4 pt-2">
-                            <button type="submit" name="submit" class="btn btn-primary btn-lg"
+                            <button type="submit" class="btn btn-primary btn-lg"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
                             <p class="small fw-bold mt-2 pt-1 mb-0" style="color: #eee">Don't have an account? <a href="{{ route('sesi-register')}}"
                                 class="link-danger">Register</a></p>
