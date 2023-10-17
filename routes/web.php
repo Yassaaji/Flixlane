@@ -22,6 +22,9 @@ use Inertia\Inertia;
 // });
 Route::middleware(['auth'])->group(function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/landing', [App\Http\Controllers\HomeController::class, 'landing'])->name('landing');
+Route::get('/season', [App\Http\Controllers\HomeController::class, 'season'])->name('season');
+Route::get('/view', [App\Http\Controllers\HomeController::class, 'view'])->name('view');
 // Route::resource('home' ,\App\Http\Controllers\HomeController::class);
 });
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
