@@ -50,4 +50,9 @@ class HomeController extends Controller
     {
         return view('user/video');
     }
+
+    public function profile()
+    {
+        return view('user/profile');
+    }
 }

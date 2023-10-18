@@ -11673,6 +11673,15 @@ label.error {
   font-weight: bold;
 }
 
+.navbar-wrapper {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Atur z-index sesuai kebutuhan Anda */
+    background-color: #fff; /* Atur warna latar belakang sesuai kebutuhan Anda */
+}
+
+
 :root {
   --f7-theme-color: #132977;
 }
