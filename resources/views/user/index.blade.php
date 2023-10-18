@@ -16,8 +16,8 @@
 
 	<link rel="stylesheet" href="../../maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/themify-icons.css">
-	
-	
+
+
 	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -46,7 +46,7 @@
             color: #132977;
             line-height: 20px;
             position: relative;
-            top:-3px; 
+            top:-3px;
         }
 		.btn {font-size: 11px; letter-spacing: 1px; font-weight: 600; }
 		.btn-lg {padding: 18px 55px; }
@@ -58,7 +58,7 @@
 		.icon-div h3 {font-size: 24px; margin-bottom: 15px;font-weight: 600;  }
 		.icon-div p {font-size: 13px; }
 		.demo-item img {width: 100%; box-shadow: 0px 40px 60px -40px rgba(0, 0, 0, 0.5);}
-		.demo-item a span { padding: 30px 0 30px 0;text-align: center;display: block;text-decoration: none !important;font-weight: 600;color: #111;font-size: 16px;letter-spacing: 0.4px;text-decoration: none; } 
+		.demo-item a span { padding: 30px 0 30px 0;text-align: center;display: block;text-decoration: none !important;font-weight: 600;color: #111;font-size: 16px;letter-spacing: 0.4px;text-decoration: none; }
 		.brand-wrapper {position: relative; top:-120px; }
 		.brand-wrapper img {margin-right: 20px;}
 		.brand-wrapper .col-sm-3 {display: flex;}
@@ -263,171 +263,6 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="demo p100" id="demo" style="background-color: #f3fbff;">
-			<div class="container-fluid max-container">
-				<div class="row justify-content-center">
-					<div class="col-md-8 col-lg-6 col-xl-4 text-center">
-						<h2 class="title-text2 mb-4"><b>Choose Demo</b></h2>
-						<p>Create a really awesome website, choose the version that will suit your requirements in a best way.</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-12 pt100"></div>
-					<div class="col-lg-6 col-md-6 demo-item">
-						<a target="_blank" href="home.html">
-							<img src="images/s-1.jpg" alt="demo-image">
-							<span>Home</span>
-						</a>
-					</div>
-
-					<div class="col-lg-6 col-md-6 demo-item">
-						<a target="_blank" href="home-full.html">
-							<img src="images/s-2.jpg" alt="demo-image">
-							<span>Home Full</span>
-						</a>
-					</div>
-
-					<div class="col-lg-6 col-md-6 demo-item">
-						<a target="_blank" href="season.html">
-							<img src="images/s-3.jpg" alt="demo-image">
-							<span>Season</span>
-						</a>
-					</div>
-
-					<div class="col-lg-6 col-md-6 demo-item">
-						<a target="_blank" href="season-full.html">
-							<img src="images/s-4.jpg" alt="demo-image">
-							<span>Season Full</span>
-						</a>
-					</div>
-
-					<div class="col-lg-6 col-md-6 demo-item">
-						<a target="_blank" href="single.html">
-							<img src="images/s-5.jpg" alt="demo-image">
-							<span>Single</span>
-						</a>
-					</div>
-
-					<div class="col-lg-6 col-md-6 demo-item">
-						<a target="_blank" href="single-full.html">
-							<img src="images/s-6.jpg" alt="demo-image">
-							<span>Single Full</span>
-						</a>
-					</div>
-
-					<div class="col-lg-6 col-md-6 demo-item">
-						<a target="_blank" href="search.html">
-							<img src="images/s-7.jpg" alt="demo-image">
-							<span>Search</span>
-						</a>
-					</div>
-
-					<div class="col-lg-6 col-md-6 demo-item">
-						<a target="_blank" href="search-full.html">
-							<img src="images/s-8.jpg" alt="demo-image">
-							<span>Search Full</span>
-						</a>
-					</div>
-
-                    <div class="col-lg-6 col-md-6 demo-item">
-                        <a target="_blank" href="landing.html">
-                            <img src="images/s-17.jpg" alt="demo-image">
-                            <span>Landing Page</span>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 demo-item">
-                        <a target="_blank" href="home.html">
-                            <img src="images/s-18.jpg" alt="demo-image">
-                            <span>Dark</span>
-                        </a>
-                    </div>
-
-					<div class="col-lg-6 col-md-6 demo-item">
-						<a target="_blank" href="member.html">
-							<img src="images/s-9.jpg" alt="demo-image">
-							<span>Price</span>
-						</a>
-					</div>
-
-					<div class="col-lg-6 col-md-6 demo-item">
-						<a target="_blank" href="member.html">
-							<img src="images/s-10.jpg" alt="demo-image">
-							<span>Register</span>
-						</a>
-					</div>
-
-					<div class="col-lg-6 col-md-6 demo-item">
-						<a target="_blank" href="member.html">
-							<img src="images/s-11.jpg" alt="demo-image">
-							<span>Payment</span>
-						</a>
-					</div>
-
-					<div class="col-lg-6 col-md-6 demo-item">
-						<a target="_blank" href="member.html">
-							<img src="images/s-12.jpg" alt="demo-image">
-							<span>Congrats</span>
-						</a>
-					</div>
-
-                    <div class="col-lg-6 col-md-6 demo-item">
-                        <a target="_blank" href="signup.html">
-                            <img src="images/s-13.jpg" alt="demo-image">
-                            <span>Register</span>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 demo-item">
-                        <a target="_blank" href="signin.html">
-                            <img src="images/s-14.jpg" alt="demo-image">
-                            <span>Login</span>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 demo-item">
-                        <a target="_blank" href="forgot.html">
-                            <img src="images/s-15.jpg" alt="demo-image">
-                            <span>Forgot</span>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 demo-item">
-                        <a target="_blank" href="term.html">
-                            <img src="images/s-16.jpg" alt="demo-image">
-                            <span>FAQ </span>
-                        </a>
-                    </div>
-
-                     
-
-					 
-				</div>
-			</div>
-		</div>
-
-		<div class="p100 bg-black" id="contact">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-lg-6 text-center">
-						<img src="images/logo-blank.png" alt="logo">
-						<h2 class="title-text2 text-white mt-4"><b>Beautiful designs to get you started</b></h2>
-						<p class="text-white ml-5 mr-5">Create a really awesome website, choose the version that will suit your requirements in a best way.</p>
-						<div class="col-sm-12 text-center mt-5"><a href="#" class="btn-lg btn bg-white">PURCHASE NOW</a></div>
-					</div>
-				</div>
-			</div>
-		</div>
-
 	</main>
-	
-	
-	
-	
-
 </body>
-
-
-<!-- Mirrored from uitheme.net/vstream/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Oct 2023 03:29:12 GMT -->
 </html>

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from uitheme.net/vstream/season-full.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Oct 2023 03:29:25 GMT -->
+<!-- Mirrored from uitheme.net/vstream/single-full.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Oct 2023 03:29:25 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="full-wrap" style="background: black">
-    @section('content')
+<body class="full-wrap" style="background-color: black">
+@section('content')
         <!-- banenr wrapper -->
         <div class="banner-wrapper">
             <div class="container-fluid">
@@ -45,65 +45,7 @@
                                 </div>
 
                             </div>
-                            <div class="right-wrap">
-                                <video autoplay muted loop id="myVideo">
-                                  <source src="images/video1.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="slide-wrapper">
-                        <div class="slide-slider-full owl-carousel owl-theme">
-                            <div class="owl-items">
-                                <a class="slide-one slide-two slide-three" href="#">
-                                    <div class="slide-image" style="background-image: url(images/s4.jpg);"></div>
-                                    <div class="slide-content">
-                                        <h2>Season 1 <img src="images/plus.png" alt="icon"></h2>
-                                        <span class="tag">2 h 20 min</span>
-                                        <span class="tag">2020</span>
-                                        <span class="tag"><b>HD</b></span>
-                                        <span class="tag"><b>16+</b></span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="owl-items">
-                                <a class="slide-one slide-two slide-three" href="#">
-                                    <div class="slide-image" style="background-image: url(images/s3.jpg);"></div>
-                                    <div class="slide-content">
-                                        <h2>Season 2 <img src="images/plus.png" alt="icon"></h2>
-                                        <span class="tag">2 h 20 min</span>
-                                        <span class="tag">2020</span>
-                                        <span class="tag"><b>HD</b></span>
-                                        <span class="tag"><b>16+</b></span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="owl-items">
-                                <a class="slide-one slide-two slide-three" href="#">
-                                    <div class="slide-image" style="background-image: url(images/s2.jpg);"></div>
-                                    <div class="slide-content">
-                                        <h2>Season 3 <img src="images/plus.png" alt="icon"></h2>
-                                        <span class="tag">2 h 20 min</span>
-                                        <span class="tag">2020</span>
-                                        <span class="tag"><b>HD</b></span>
-                                        <span class="tag"><b>16+</b></span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="owl-items">
-                                <a class="slide-one slide-two slide-three" href="#">
-                                    <div class="slide-image" style="background-image: url(images/s1.jpg);"></div>
-                                    <div class="slide-content">
-                                        <h2>Season 4 <img src="images/plus.png" alt="icon"></h2>
-                                        <span class="tag">2 h 20 min</span>
-                                        <span class="tag">2020</span>
-                                        <span class="tag"><b>HD</b></span>
-                                        <span class="tag"><b>16+</b></span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                            <div class="right-wrap" style="background-image: url(images/banner-2.jpg);"></div>
                         </div>
                     </div>
                 </div>
@@ -131,7 +73,7 @@
                             <div class="owl-items"><a href="#" class="crew-wrap"><img src="images/team6.jpg" alt="team"><span>Kevin McNally</span></a></div>
                             <div class="owl-items"><a href="#" class="crew-wrap"><img src="images/team7.jpg" alt="team"><span>McNally</span></a></div>
                             <div class="owl-items"><a href="#" class="crew-wrap"><img src="images/team5.jpg" alt="team"><span>Wenham</span></a></div>
-                            <div class="owl-items"><a href="#" class="crew-wrap"><img src="images/team3.jpg" alt="team"><span>Javier Bardem</span></a></div>
+                            <div class="owl-items"><a href="#" class="crew-wrap"><img src="images/team8.jpg" alt="team"><span>Kaya Scodelario</span></a></div>
                         </div>
                     </div>
                 </div>
@@ -306,9 +248,9 @@
     <script src="js/plugin.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
-    @endsection
+@endsection
 </body>
 
 
-<!-- Mirrored from uitheme.net/vstream/season-full.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Oct 2023 03:29:25 GMT -->
+<!-- Mirrored from uitheme.net/vstream/single-full.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Oct 2023 03:29:25 GMT -->
 </html>

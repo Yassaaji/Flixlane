@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <div class="row" >
                 <div class="col-lg-8 navbar p-0">
-                    <a href="index.html" class="logo"><img src="/images/logo.png" alt="logo" style="margin-left: 20px;"></a>
+                    <a href="{{ url('/home') }}" class="logo"><img src="/images/logo.png" alt="logo" style="margin-left: 20px;"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -27,22 +27,21 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                        <ul class="navbar-nav nav-menu float-none text-center">
-                            <li class="nav-item"><a class="nav-link" href="season-full.blade.php">Season</a></li>
-                            <li class="nav-item"><a class="nav-link" href="single.blade.php">Single</a></li>
-                            <li class="nav-item"><a class="nav-link" href="search.blade.php">Action</a></li>
-                            <li class="nav-item"><a class="nav-link" href="video.blade.php">Video</a></li>
-                            <li class="nav-item"><a class="nav-link" href="landing.blade.php">Landing</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/season') }}">Anime</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/single') }}">Drakor</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/search') }}">Drachin</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/video') }}">Action</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
-
                     <div class="user-avater">
                         <img src="/images/user-8.png" alt="user">
                         <div class="user-menu">
                             <ul>
                                 <li><a href="{{ url('/profile') }}"><i class="ti-user"></i>My Profile</a></li>
-                                <li><a href="favorites.html"><i class="ti-heart"></i>My Favorites</a></li>
+                                <li><a href="{{ url('/favorite') }}"><i class="ti-heart"></i>My Favorites</a></li>
                                 <li><a href="{{ url('/sesi/logout') }}"><i class="ti-power-off"></i>Log Out</a></li>
                             </ul>
                         </div>

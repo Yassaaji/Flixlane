@@ -26,9 +26,9 @@ class HomeController extends Controller
         return view('user/home-full');
     }
 
-    public function view()
+    public function single()
     {
-        return view('user/index');
+        return view('user/single');
     }
 
     public function search()
@@ -54,5 +54,10 @@ class HomeController extends Controller
     public function profile()
     {
         return view('user/profile');
+    }
+
+    public function favorite()
+    {
+        return view('user/favorites');
     }
 }

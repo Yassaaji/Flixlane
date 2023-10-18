@@ -18,8 +18,11 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'landing'])->name('
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+    Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
     Route::get('/season', [App\Http\Controllers\HomeController::class, 'season'])->name('season');
-    Route::get('/view', [App\Http\Controllers\HomeController::class, 'view'])->name('view');
+    Route::get('/single', [App\Http\Controllers\HomeController::class, 'single'])->name('single');
+    Route::get('/favorite', [App\Http\Controllers\HomeController::class, 'favorite'])->name('favorite');
+    Route::get('/video', [App\Http\Controllers\HomeController::class, 'video'])->name('video');
     // Route::resource('home' ,\App\Http\Controllers\HomeController::class);
 });
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

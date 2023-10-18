@@ -1,3 +1,4 @@
+@extends('layout.app')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,146 +16,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="full-wrap">
-
-    <div class="preloader"></div>
-
-    <div class="backdrop"></div>
-    <div class="switchcolor"><img src="images/settings.png" alt="icon"></div>
-    <div class="switchcolor-wrap">
-        <a class="link sheet-close"><i class="ti-close"></i></a>
-        <h2>Settings</h2>
-        <h4>Choose Color Theme</h4>
-        <ul>
-            <li>
-                <label class="item-radio item-content">
-                    <input type="radio" name="color-radio" value="red" checked=""><i class="ti-check"></i>
-                    <span class="circle-color bg-red" style="background-color: #ff3b30;"></span>
-                </label>
-            </li>
-            <li>
-                <label class="item-radio item-content">
-                    <input type="radio" name="color-radio" value="green"><i class="ti-check"></i>
-                    <span class="circle-color bg-green" style="background-color: #4cd964;"></span>
-                </label>
-            </li>
-            <li>
-                <label class="item-radio item-content">
-                    <input type="radio" name="color-radio" value="blue" checked=""><i class="ti-check"></i>
-                    <span class="circle-color bg-blue" style="background-color: #132977;"></span>
-                </label>
-            </li>
-            <li>
-                <label class="item-radio item-content">
-                    <input type="radio" name="color-radio" value="pink"><i class="ti-check"></i>
-                    <span class="circle-color bg-pink" style="background-color: #ff2d55;"></span>
-                </label>
-            </li>
-            <li>
-                <label class="item-radio item-content">
-                    <input type="radio" name="color-radio" value="yellow"><i class="ti-check"></i>
-                    <span class="circle-color bg-yellow" style="background-color: #ffcc00;"></span>
-                </label>
-            </li>
-            <li>
-                <label class="item-radio item-content">
-                    <input type="radio" name="color-radio" value="orange"><i class="ti-check"></i>
-                    <span class="circle-color bg-orange" style="background-color: #ff9500;"></span>
-                </label>
-            </li>
-            <li>
-                <label class="item-radio item-content">
-                    <input type="radio" name="color-radio" value="gray"><i class="ti-check"></i>
-                    <span class="circle-color bg-gray" style="background-color: #8e8e93;"></span>
-                </label>
-            </li>
-
-            <li>
-                <label class="item-radio item-content">
-                    <input type="radio" name="color-radio" value="brown"><i class="ti-check"></i>
-                    <span class="circle-color bg-brown" style="background-color: #D2691E;"></span>
-                </label>
-            </li>
-            <li>
-                <label class="item-radio item-content">
-                    <input type="radio" name="color-radio" value="darkgreen"><i class="ti-check"></i>
-                    <span class="circle-color bg-darkgreen" style="background-color: #228B22;"></span>
-                </label>
-            </li>
-            <li>
-                <label class="item-radio item-content">
-                    <input type="radio" name="color-radio" value="deeppink"><i class="ti-check"></i>
-                    <span class="circle-color bg-deeppink" style="background-color: #FFC0CB;"></span>
-                </label>
-            </li>
-            <li>
-                <label class="item-radio item-content">
-                    <input type="radio" name="color-radio" value="cadetblue"><i class="ti-check"></i>
-                    <span class="circle-color bg-cadetblue" style="background-color: #5f9ea0;"></span>
-                </label>
-            </li>
-            <li>
-                <label class="item-radio item-content">
-                    <input type="radio" name="color-radio" value="darkorchid"><i class="ti-check"></i>
-                    <span class="circle-color bg-darkorchid" style="background-color: #9932cc;"></span>
-                </label>
-            </li>
-            
-            
-        </ul>
-        <div class="toggle-div mt-4">
-            <h4 class="d-inline">Dark Mode</h4>
-            <div class="d-inline float-right">
-                <label class="toggle toggle-init"><input type="checkbox"><span class="toggle-icon"></span></label>
-            </div>
-        </div>
-    </div>
-
-
+<body class="full-wrap" style="background-color: black">
+    @section('content')
     <div class="main-wrapper">
-        <!-- header wrapper -->
-        <div class="header-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-8 navbar p-0">
-                        <a href="index.html" class="logo"><img src="images/logo.png" alt="logo"></a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                            <ul class="navbar-nav nav-menu float-none text-center">
-                                <li class="nav-item"><a class="nav-link" href="season.html">Season</a></li>
-                                <li class="nav-item"><a class="nav-link" href="single.html">Single</a></li>
-                                <li class="nav-item"><a class="nav-link" href="search.html">Action</a></li>
-                                <li class="nav-item"><a class="nav-link" href="video.html">Video</a></li>
-                                <li class="nav-item"><a class="nav-link" href="landing.html">Landing</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        
-                        <div class="user-avater">
-                            <img src="images/user-8.png" alt="user">
-                            <div class="user-menu">
-                                <ul>
-                                    <li><a href="profile.html"><i class="ti-user"></i>My Profile</a></li>
-                                    <li><a href="favorites.html"><i class="ti-heart"></i>My Favorites</a></li>
-                                    <li><a href="term.html"><i class="ti-world"></i>Privacy Policy</a></li>
-                                    <li><a href="home.html"><i class="ti-power-off"></i>Log Out</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="search-div">
-                            <input type="text" placeholder="Seacrh">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- header wrapper -->
-
         <div class="page-nav p-0">
             <div class="container-fluid">
                 <div class="row">
@@ -167,11 +31,11 @@
                 </div>
             </div>
         </div>
-         
+
         <!-- slider wrapper -->
         <div class="slide-wrapper search-wrap-slide">
             <div class="container-fluid">
-                 
+
                 <div class="row">
                     <div class="col-sm-12 mt-4">
                         <div class="slide-slider-full owl-carousel owl-theme">
@@ -263,7 +127,7 @@
         <!-- slider wrapper -->
         <div class="slide-wrapper mt-1 search-wrap-slide">
             <div class="container-fluid">
-                
+
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="slide-slider-full owl-carousel owl-theme">
@@ -356,7 +220,7 @@
          <!-- slider wrapper -->
         <div class="slide-wrapper mt-1 search-wrap-slide">
             <div class="container-fluid">
-                
+
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="slide-slider-full owl-carousel owl-theme">
@@ -445,11 +309,11 @@
             </div>
         </div>
         <!-- slider wrapper -->
-        
+
         <!-- slider wrapper -->
         <div class="slide-wrapper mt-1 search-wrap-slide">
             <div class="container-fluid">
-                
+
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="slide-slider-full owl-carousel owl-theme">
@@ -545,13 +409,13 @@
                         <h4 class="mb-4">We are digital agency, a small design agency based in paris as i was groping to remove the chain from about my victim’s neck only through language.</h4>
                     </div>
                     <div class="col-sm-6 text-left">
-                        <img src="images/icon-21.png" alt="icon" class="icon-img"> 
+                        <img src="images/icon-21.png" alt="icon" class="icon-img">
                     </div>
                     <div class="col-sm-5 offset-sm-1 text-right">
                         <form action="#" class="mt-0">
                             <input type="text" placeholder="Email">
                             <button>Submit</button>
-                        </form>                    
+                        </form>
                     </div>
                     <div class="col-sm-12">
                         <div class="middle-footer">
@@ -628,13 +492,13 @@
 
     </div>
 
-    
+
 
 
     <script src="js/plugin.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
-    
+ @endsection
 </body>
 
 
