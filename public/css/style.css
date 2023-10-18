@@ -179,7 +179,7 @@
 }
 
 .color-theme-darkorchid {
-  ---theme-color: #9932cc;
+  ---theme-color: #000000;
   ---theme-color-rgb: 0, 0, 0;
   ---theme-color-shade: #000000;
   ---theme-color-tint: #141414 ;
@@ -627,6 +627,9 @@ hr {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.owl-nav .owl-prev{
+    font-size: 20px;
+}
 small,
 .small {
   font-size: 80%;
