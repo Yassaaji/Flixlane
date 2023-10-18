@@ -16,17 +16,9 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check()) {
-            if (Auth::user()->role === 'admin') {
-                if (Auth::user()->status === 'banned') {
-                    Auth::logout();
-                    return redirect('/')->with('error', "Sorry, your account is banned from this website forever");
-                }
-                return $next($request);
-            }
-            return redirect()->back()->with('error', "You don't have access to this page");
+        if(Auth::check() && Auth::user()->role === "admin"){
+            return $next($request);
         }
-
-        return redirect('/')->with('error', "Sign in to access this page");
+        abort(403,'Unauthorize');
     }
 }

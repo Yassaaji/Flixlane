@@ -16,13 +16,10 @@ class User
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check()) {
-            if (Auth::user()->role === 'user') {
-                return $next($request);
-            }
-            return redirect()->back()->with('error', "You don't have access to this page");
+        if(Auth::check() && Auth::user()->role === "user"){
+            return $next($request);
         }
 
-        return redirect('/')->with('error', "Sign in to access this page");
+        return redirect()->route('logout');
     }
 }

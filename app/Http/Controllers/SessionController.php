@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class SessionController extends Controller
@@ -23,16 +24,19 @@ class SessionController extends Controller
             'password.required' => 'Password wajib diisi',
         ]);
 
-        $infologin = [
-            'email' => $request->email,
-            'password' => $request->password
-        ];
+       $infologin = $request->only('email', 'password');
 
+        // dd($infologin);
         if (Auth::attempt($infologin)) {
-            return redirect()->route('home')->with('success', 'Berhasil login');
-        } else {
-            return redirect()->route('sesi-index')->withErrors('Username dan password yang dimasukkan tidak valid');
+            $user = Auth::user();
+
+            if ($user->role === 'admin'){
+                return redirect()->route('')->with('success','anda berhasil login');
+            } elseif ($user->role === 'user') {
+                return Redirect()->route('home')->with('succes', 'anda berhasil login');
+            }
         }
+
     }
 
     public function logout(){
