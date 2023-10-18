@@ -29,6 +29,10 @@ Route::get('/view', [App\Http\Controllers\HomeController::class, 'view'])->name(
 });
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::group(['middleware'=>'admin'],function(){
+
+});
+
 // Auth::routes();
 
 //login
