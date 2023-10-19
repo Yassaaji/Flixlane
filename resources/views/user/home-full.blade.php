@@ -144,7 +144,7 @@
         </div>
         <!-- slider wrapper -->
         <!-- slider wrapper -->
-        <div class="slide-wrapper">
+        {{-- <div class="slide-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6 text-left mb-4 mt-4">
@@ -172,7 +172,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- slider wrapper -->
         <!-- slider wrapper -->
          {{-- <div class="footer-wrapper">

@@ -21,22 +21,12 @@
             position: relative;
             width: 150px; /* Sesuaikan ukuran sesuai kebutuhan */
             height: 150px; /* Sesuaikan ukuran sesuai kebutuhan */
-            overflow: hidden;
             border-radius: 50%;
         }
 
-        .user-avatar-circle {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            border-radius: 50%;
-        }
 
-        .user-avatar-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+
+
 
     </style>
 
@@ -66,15 +56,15 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
+
                     <div class="user-avater">
-                        <div class="user-avatar-circle">
-                            <img src="{{ asset('storage/' . Auth::user()->profile) }}" alt="user">
-                        </div>
+                        <img src="{{ asset('storage/' . Auth::user()->profile) }}" height="100%" width="150%" alt="user">
                         <div class="user-menu">
                             <ul>
-                                <li><a href="{{ url('/profile') }}"><i class="ti-user"></i>My Profile</a></li>
-                                <li><a href="{{ url('/favorite') }}"><i class="ti-heart"></i>My Favorites</a></li>
-                                <li><a href="{{ url('/sesi/logout') }}"><i class="ti-power-off"></i>Log Out</a></li>
+                                <li><a href="profile.html"><i class="ti-user"></i>My Profile</a></li>
+                                <li><a href="favorites.html"><i class="ti-heart"></i>My Favorites</a></li>
+                                <li><a href="term.html"><i class="ti-world"></i>Privacy Policy</a></li>
+                                <li><a href="home.html"><i class="ti-power-off"></i>Log Out</a></li>
                             </ul>
                         </div>
                     </div>
@@ -82,6 +72,7 @@
                         <input type="text" placeholder="Seacrh">
                     </div>
                 </div>
+
             </div>
         </div>
         <div class="main-content py-3 px-3">
