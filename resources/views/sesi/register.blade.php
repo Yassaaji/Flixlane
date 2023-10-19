@@ -42,6 +42,10 @@
                             <input type="text" value="{{ Session::get('name')}}" name="name" class="form-control @error('name')is-invalid @enderror">
                         </div>
                         <div class="mb-2" style="color: #eee">
+                            <label for="name" class="form-label">Username</label>
+                            <input type="text" value="{{ Session::get('username')}}" name="username" class="form-control @error('username')is-invalid @enderror">
+                        </div>
+                        <div class="mb-2" style="color: #eee">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" value="{{ Session::get('email')}}" name="email" class="form-control @error('email')is-invalid @enderror">
                         </div>

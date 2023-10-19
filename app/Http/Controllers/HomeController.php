@@ -46,9 +46,9 @@ class HomeController extends Controller
         return view('user/landing');
     }
 
-    public function video()
+    public function detail()
     {
-        return view('user/video');
+        return view('user/detail');
     }
 
     public function profile()
@@ -59,5 +59,10 @@ class HomeController extends Controller
     public function favorite()
     {
         return view('user/favorites');
+    }
+
+    public function video()
+    {
+        return view('user/video');
     }
 }

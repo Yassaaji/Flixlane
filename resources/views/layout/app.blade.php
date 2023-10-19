@@ -11,6 +11,35 @@
     <link rel="icon" type="/image/png" sizes="16x16" href="/images/favicon.png">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ url('css/komentar.css ') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    {{-- ICON Flaticon --}}
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <style>
+        .user-avater {
+            position: relative;
+            width: 150px; /* Sesuaikan ukuran sesuai kebutuhan */
+            height: 150px; /* Sesuaikan ukuran sesuai kebutuhan */
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .user-avatar-circle {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .user-avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+
 </head>
 <body>
 <div class="main-wrapper">
@@ -31,13 +60,16 @@
                             <li class="nav-item"><a class="nav-link" href="{{ url('/season') }}">Anime</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/single') }}">Drakor</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/search') }}">Drachin</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/video') }}">Action</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ url('/detail') }}">Action</a></li>
+                            {{-- <li class="nav-item"><a class="nav-link" href="{{ url('/video') }}">Video</a></li> --}}
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="user-avater">
-                        <img src="/images/user-8.png" alt="user">
+                        <div class="user-avatar-circle">
+                            <img src="{{ asset('storage/' . Auth::user()->profile) }}" alt="user">
+                        </div>
                         <div class="user-menu">
                             <ul>
                                 <li><a href="{{ url('/profile') }}"><i class="ti-user"></i>My Profile</a></li>

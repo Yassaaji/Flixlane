@@ -35,6 +35,8 @@ class SessionController extends Controller
             } elseif ($user->role === 'user') {
                 return Redirect()->route('home')->with('succes', 'anda berhasil login');
             }
+        }else{
+            return redirect()->back()->with('error', "akun tidak ditemukan");
         }
 
     }
@@ -52,11 +54,13 @@ class SessionController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'username' => 'required',
             'email' => 'required|email|unique:users,email', // Ubah aturan validasi di sini
             'password' => 'required|min:6',
             're-password' => 'required|same:password', // Menambahkan validasi konfirmasi password
         ], [
             'name.required' => 'Nama Wajib diisi',
+            'username.required' => 'Nama Wajib diisi',
             'email.required' => 'Email wajib diisi',
             'email.email' => 'Silahkan masukkan email yang valid',
             'email.unique' => 'Email sudah digunakan. Silahkan gunakan email lain.', // Pesan kesalahan untuk email yang sudah dipakai
@@ -68,6 +72,7 @@ class SessionController extends Controller
 
         $data = [
             'name' => $request->name,
+            'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => $request->role,

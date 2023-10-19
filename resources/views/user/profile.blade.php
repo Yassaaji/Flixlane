@@ -36,10 +36,10 @@
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <div class="profile-picture">
-                        <img src="/asset/perfectworld.jpg" alt="Profile Picture" id="preview-picture">
+                        <img src="{{ asset('storage/' . Auth::user()->profile) }}" alt="Profile Picture" id="preview-picture">
                     </div>
-                    <h2 style="color: white">John Doe</h2>
-                    <p style="color: white">@johndoe</p>
+                    <h2 style="color: white">{{ Auth::user()->name }}</h2>
+                    <p style="color: white">{{ Auth::user()->username }}</p>
                 </div>
             </div>
         </div>
@@ -49,33 +49,30 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-8">
+                    <form action="{{route('profile.edit', Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
+                        @method('PUT')
+                        @csrf
+                        <input type="text" hidden>
                     <table class="table">
                         <tbody>
                             <tr>
                                 <td style="color: white">Profile Picture:</td>
                                 <td>
-                                    <input type="file" class="form-control" id="profile-picture" accept="image/*">
+                                    <input type="file" name="profile" class="form-control" id="profile-picture" >
                                 </td>
                             </tr>
                             <tr>
                                 <td style="color: white">Name:</td>
-                                <td><input type="text" class="form-control" value="John Doe"></td>
+                                <td><input type="text" name="name" class="form-control" value="{{ Auth::user()->name }}"></td>
                             </tr>
                             <tr>
                                 <td style="color: white">Username:</td>
-                                <td><input type="text" class="form-control" value="johndoe"></td>
-                            </tr>
-                            <tr>
-                                <td style="color: white">Password:</td>
-                                <td><input type="password" class="form-control" placeholder="New Password"></td>
-                            </tr>
-                            <tr>
-                                <td style="color: white">Email:</td>
-                                <td><input type="email" class="form-control" value="johndoe@example.com"></td>
+                                <td><input type="text" name="username" class="form-control" value="{{ Auth::user()->username }}"></td>
                             </tr>
                         </tbody>
                     </table>
-                    <button class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
                 </div>
             </div>
         </div>
