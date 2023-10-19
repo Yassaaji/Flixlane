@@ -71,7 +71,9 @@ class ProfileController extends Controller
             $update_user = User::find(Auth::user()->id);
 
             if ($request->hasFile('profile')) {
-                Storage::delete($update_user->profile);
+                if ($update_user->profile) {
+                    Storage::delete($update_user->profile);
+                }
                 $update_user->profile = $request->file('profile')->store('foto-profile', 'public');
             }
 

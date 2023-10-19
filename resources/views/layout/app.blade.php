@@ -23,11 +23,6 @@
             height: 150px; /* Sesuaikan ukuran sesuai kebutuhan */
             border-radius: 50%;
         }
-
-
-
-
-
     </style>
 
 </head>
@@ -61,10 +56,9 @@
                         <img src="{{ asset('storage/' . Auth::user()->profile) }}" height="100%" width="150%" alt="user">
                         <div class="user-menu">
                             <ul>
-                                <li><a href="profile.html"><i class="ti-user"></i>My Profile</a></li>
-                                <li><a href="favorites.html"><i class="ti-heart"></i>My Favorites</a></li>
-                                <li><a href="term.html"><i class="ti-world"></i>Privacy Policy</a></li>
-                                <li><a href="home.html"><i class="ti-power-off"></i>Log Out</a></li>
+                                <li><a href="{{ url('/profile') }}"><i class="ti-user"></i>My Profile</a></li>
+                                <li><a href="{{ url('/favorite') }}"><i class="ti-heart"></i>My Favorites</a></li>
+                                <li><a href="{{ url('/sesi/logout') }}"><i class="ti-power-off"></i>Log Out</a></li>
                             </ul>
                         </div>
                     </div>
