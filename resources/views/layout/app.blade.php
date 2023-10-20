@@ -54,7 +54,7 @@
 
                     <div class="user-avater">
                         @if (Auth::user()->profile)
-                        <img src="{{ asset('foto-profile/' . Auth::user()->profile) }}" height="100%" width="150%" alt="user">
+                        <img src="{{ asset('storage/' . Auth::user()->profile) }}" height="100%" width="150%" alt="Profile Picture" id="preview-picture">
                         @else
                             <img src="{{ asset('images/profiledefault.jpg') }}" alt="Default Profile Image">
                         @endif
