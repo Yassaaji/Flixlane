@@ -53,7 +53,12 @@
                 <div class="col-lg-4">
 
                     <div class="user-avater">
-                        <img src="{{ asset('storage/' . Auth::user()->profile) }}" height="100%" width="150%" alt="user">
+                        @if (Auth::user()->profile)
+                        <img src="{{ asset('foto-profile/' . Auth::user()->profile) }}" height="100%" width="150%" alt="user">
+                        @else
+                            <img src="{{ asset('images/profiledefault.jpg') }}" alt="Default Profile Image">
+                        @endif
+
                         <div class="user-menu">
                             <ul>
                                 <li><a href="{{ url('/profile') }}"><i class="ti-user"></i>My Profile</a></li>

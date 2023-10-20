@@ -57,11 +57,10 @@ class ProfileController extends Controller
         ], [
             'name.required' => 'Name cannot be empty',
             'name.max' => 'Name max length is 100 characters',
-            'username.required' => 'Username cannot be empty',
+            'username.required' => 'Username wajib di isi',
             'username.max' => 'Username max length is 100 characters',
             'profile.image' => 'The uploaded file must be an image.',
             'profile.mimes' => 'Supported image formats are: jpeg, png, jpg, gif',
-            'profile.max' => 'Maximum file size is 2MB',
         ]);
 
         if (Auth::user()->id != $id) {
@@ -72,10 +71,16 @@ class ProfileController extends Controller
             $update_user = User::find(Auth::user()->id);
 
             if ($request->hasFile('profile')) {
-                if ($update_user->profile) {
-                    Storage::delete($update_user->profile);
+                // Dapatkan path foto profil lama
+                $oldProfilePath = storage_path('app/public/' . $update_user->profile);
+                $path = $request->file('profile')->store('profil', 'public');
+                $update_user->profile = $path;
+                $update_user->save();
+
+                // Hapus foto profil lama jika ada
+                if ($update_user->profile && file_exists($oldProfilePath)) {
+                    unlink($oldProfilePath);
                 }
-                $update_user->profile = $request->file('profile')->store('foto-profile', 'public');
             }
 
             $update_user->name = $request->name;
@@ -87,6 +92,7 @@ class ProfileController extends Controller
             return redirect()->back()->with('error', 'Failed to update profile.');
         }
     }
+
 
 
     public function destroy(Profile $profile)
