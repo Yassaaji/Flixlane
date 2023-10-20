@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\SessionController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\FilmController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SessionController;
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
@@ -14,6 +15,7 @@ use Inertia\Inertia;
 // });
 // Landing Page
 Route::get('/', [App\Http\Controllers\HomeController::class, 'landing'])->name('landing');
+Route::post('/logout',[SessionController::class, 'logout'])->name('logout');
 
 // Grup Middleware 'auth' untuk rute yang memerlukan otentikasi
 Route::middleware(['auth'])->group(function () {
@@ -33,6 +35,10 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::group(['middleware'=>'admin'],function(){
+    Route::get('/admin',[AdminController::class,'index'])->name('admin');
+    Route::get('/tambahfilm',[FilmController::class,'create'])->name('tambahfilm');
+    Route::get('/daftarfilm',[FilmController::class, 'daftarFilm'])->name('daftarfilm');
+    Route::post('/uploadfilm',[FilmController::class,'store'])->name('uploadfilm');
 
 });
 

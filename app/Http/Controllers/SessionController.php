@@ -15,7 +15,8 @@ class SessionController extends Controller
         return view("sesi.index");
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         $request->validate([
             'email' => 'required',
             'password' => 'required'
@@ -28,10 +29,11 @@ class SessionController extends Controller
 
         // dd($infologin);
         if (Auth::attempt($infologin)) {
-            $user = Auth::user();
 
+            $user = Auth::user();
+            //  dd($user);
             if ($user->role === 'admin'){
-                return redirect()->route('')->with('success','anda berhasil login');
+                return Redirect()->route('admin')->with('success','anda berhasil login');
             } elseif ($user->role === 'user') {
                 return Redirect()->route('home')->with('succes', 'anda berhasil login');
             }
@@ -39,11 +41,18 @@ class SessionController extends Controller
             return redirect()->back()->with('error', "akun tidak ditemukan");
         }
 
+        return redirect()->route('sesi-index')->with('error', 'Email atau kata sandi salah.');
+
     }
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('sesi-index')->with('success', 'Berhasil logout');
+
+        request()->session()->invalidate();
+
+        request()->session()->regenerateToken();
+
+        return redirect()->route('sesi-index')->with('success', 'Anda Berhasil Logout.');
     }
 
     public function register(){

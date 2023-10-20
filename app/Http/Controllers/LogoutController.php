@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Logout;
+
 use Illuminate\Http\Request;
 
 class LogoutController extends Controller

@@ -1,0 +1,155 @@
+body {
+    /* background-color: rgb(1, 1, 18); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    /* Background Image */
+    background-image: url('img/guest_login.jpg');
+    /* Background Size */
+    background-size: cover;
+    /* Background Position */
+    background-position: center center;
+    /* Background Repeat */
+    background-repeat: no-repeat;
+    /* Height untuk mengisi seluruh layar */
+    height: 100vh;
+}
+
+/* .container {
+    display: grid;
+    text-align: center;
+    align-items: center;
+text-align: center;
+} */
+
+.form-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; /* Untuk mengatur elemen di tengah vertikal */
+    height: 100%;
+    padding: 0 20px; /* Padding di sebelah kanan dan kiri */
+    text-align: center; /* Untuk mengatur teks di tengah */
+}
+
+
+/* Tambahan: Untuk mengatur jarak antara elemen-elemen form */
+.form-container input,
+.form-container select,
+.form-container textarea {
+    margin-bottom: 10px; /* Atur jarak antara elemen-elemen form */
+}
+
+
+.border-form{
+    border: 2px dashed #880bf5;
+
+}
+.p-3 {
+    padding: 2rem !important;
+}
+form {
+    text-align: center;
+    /* border: 3px dashed #880bf5; */
+    padding: 20px;
+    border-radius: 5px;
+    /* Latar belakang form dengan transparansi */
+    padding-right: 20px;
+    width: 400px;
+    color: rgb(0, 0, 0);
+    /* Warna teks di dalam form */
+}
+
+/* Ganti class untuk elemen-elemen berikut */
+.input-text {
+    width: 90%;
+    /* Lebar input 100% untuk mengisi seluruh form */
+    padding: 5px;
+    margin: 7px 0;
+    border: none;
+    border-radius: 0;
+    border-bottom: 0px dashed #7a32c1;
+    /* Tambahkan garis bawah putus-putus */
+    background-color: #ffffff;
+    /* Warna ungu */
+    color: #000000;
+    /* Warna teks putih */
+    /* border-radius: 200px; */
+    border-radius: 3px;
+}
+
+.input-file {
+    width: 100%;
+    /* Lebar input 100% untuk mengisi seluruh form */
+    padding: 5px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 0;
+    border-bottom: 0px dashed #7a32c1;
+    /* Tambahkan garis bawah putus-putus */
+    background-color: #212121;
+    /* Warna ungu */
+    color: #ffffff;
+    /* Warna teks putih */
+    /* border-radius: 200px; */
+    border-radius: 3px;
+}
+
+.input-file::-webkit-file-upload-button {
+    background-color: #8a3ac7;
+    /* Warna ungu */
+    color: #ffffff;
+    /* Warna teks putih */
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.input-file::-ms-browse {
+    background-color: #7a32c1;
+    /* Warna ungu */
+    color: #ffffff;
+    /* Warna teks putih */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.input-submit {
+    background-color: #212121;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+    /* Lebar tombol 100% */
+}
+
+.input-submit:hover {
+    background-color: #b8d4f1;
+    color: #000000;
+}
+
+.input-file-container {
+    display: flex;
+    flex-direction: column;
+    /* Tampilkan input file dan tombol secara vertikal */
+}
+
+/* Membuat jarak antara input file dan tombol */
+.input-file-container button {
+    margin-top: 10px;
+}
+/* CSS untuk memberikan bingkai pada gambar */
+/* CSS untuk bingkai gambar yang ditingkatkan */
+.edit-image-frame {
+    border: 4px solid #880bf5; /* Warna dan ukuran bingkai sesuai preferensi Anda */
+    border-radius: 10px; /* Radius bingkai untuk tampilan yang lebih lembut */
+    padding: 10px; /* Jarak antara bingkai dan gambar */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Efek bayangan untuk tampilan yang lebih menarik */
+}
+

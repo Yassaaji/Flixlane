@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kategoris', function (Blueprint $table) {
+        Schema::create('penayangans', function (Blueprint $table) {
             $table->id();
-            $table->enum('kategori',['action','anime','drakor','dracin']);
+            $table->foreignId('user_id')->constrained();
+            $table->integer('penonton');
             $table->timestamps();
         });
     }
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kategoris');
+        Schema::dropIfExists('penayangans');
     }
 };
