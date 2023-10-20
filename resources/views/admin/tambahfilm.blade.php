@@ -61,9 +61,6 @@
                         @enderror
                     </div>
                 </div>
-
-
-            </form>
             <center class="mt-5">
                 <div class="container col-md-10 ">
                     <div class="row ">
@@ -82,7 +79,7 @@
                 </div>
                 <button type="submit" class="input-submit mt-2" style="width: 81%;">Upload</button>
             </center>
-
+        </form>
     </div>
 </body>
 

@@ -35,7 +35,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 Route::group(['middleware'=>'admin'],function(){
-    Route::get('/admin',[AdminController::class,'index'])->name('admin');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
     Route::get('/tambahfilm',[FilmController::class,'create'])->name('tambahfilm');
     Route::get('/daftarfilm',[FilmController::class, 'daftarFilm'])->name('daftarfilm');
     Route::post('/uploadfilm',[FilmController::class,'store'])->name('uploadfilm');
