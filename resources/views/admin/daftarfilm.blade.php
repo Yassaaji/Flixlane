@@ -311,7 +311,7 @@
                                         <td>{{ $i + 1 }} </td>
                                         <td>{{ $film->judul }}</td>
                                         <td><video src="{{ asset('storage/vidio') . $film->vidio }}"></video></td>
-                                        <td><img src="{{ asset('storage/tumnile/' . $film->thumbnile) }}"
+                                        <td><img src="{{ asset('storage/tumnile/' . $film->tumnile) }}"
                                                 alt="{{ $film->judul }}" height="100px" width="100px"></td>
                                         <td>{{ $film->tayang }}</td>
 
@@ -327,6 +327,9 @@
                                                     <button class="btn btn-danger btn-sm me-2"
                                                         onclick="confirmDelete(event)"><i class="fas fa-trash-alt"></i>
                                                     </button>
+
+
+
                                                 </form>
                                             </div>
                                         </td>

@@ -21,9 +21,6 @@
                 <li><a href="{{ route('admin') }}" class="nav-link text-white {{ request()->is('admin') ? 'active' : '' }}"><i class="fas fa-th"></i><span>Dashboard</span></a></li>
                 <li><a href="{{ route('tambahfilm') }}"><i class="fas fa-fire"></i><span>Film</span></a></li>
                 <li><a href="{{ route('daftarfilm') }}"><i class="fas fa-th"></i><span>DaftarFilm</span></a></li>
-                <li><a href="#"><i class="fas fa-users"></i><span>Suppliers</span></a></li>
-                <li class="active"><a href="#"><i class="fas fa-user"></i><span>Users</span></a></li>
-                <li><a href="#"><i class="fas fa-cog"></i><span>Settings</span></a></li>
                 <li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
@@ -70,7 +67,6 @@ $('body').on('mouseenter', '#warraper.small-menu #left-menu li a', function(){
 $('body').on('mouseleave', '#warraper.small-menu #left-menu li a', function(){
   $('#show-label-menu').stop().fadeOut();
 });
-
 
 
     </script>

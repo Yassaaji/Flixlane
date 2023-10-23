@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('thumbnile');
             $table->string('vidio');
             $table->string('judul');
-            $table->longText('deskripsi');
+            $table->longText('sinopsis');
             $table->time('durasi');
             $table->integer('minimal_usia');
             $table->foreignId('kategori_id')->constrained();

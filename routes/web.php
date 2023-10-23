@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::put('/profile/{id}', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.edit');
     Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index']);
+
 });
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -38,7 +39,11 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
     Route::get('/tambahfilm',[FilmController::class,'create'])->name('tambahfilm');
     Route::get('/daftarfilm',[FilmController::class, 'daftarFilm'])->name('daftarfilm');
-    Route::post('/uploadfilm',[FilmController::class,'store'])->name('uploadfilm');
+    Route::post('/tambahfilm',[FilmController::class,'store'])->name('createfilm');
+    Route::get('/edit-film/{id}',[FilmController::class,'edit'])->name('edit-film');
+    Route::resource('film', FilmController::class);
+    Route::put('/proseseditfilm/{id}', [FilmController::class, 'update']);
+
 
 });
 

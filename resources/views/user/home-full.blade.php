@@ -79,7 +79,7 @@
                                         <span class="tag">2 h 20 min</span>
                                         <span class="tag">Action</span>
                                         <p>Radhe is a singing prodigy determined to follow in the classical footsteps of his grandfather. Tamanna is a YouTube pop sensation desperate to become .</p>
-                                        <a href="video.html" class="btn btn-lg"><img src="/images/play.png" alt="icn">Watch now</a>
+                                        <a href="{{ url('/video') }}" class="btn btn-lg"><img src="/images/play.png" alt="icn">Watch now</a>
                                     </div>
                                     <div class="right-wrap" style="background-image: url(/images/banner-2.jpg);"></div>
                                 </div>
@@ -97,7 +97,7 @@
                                         <span class="tag">2 h 20 min</span>
                                         <span class="tag">Action</span>
                                         <p>Radhe is a singing prodigy determined to follow in the classical footsteps of his grandfather. Tamanna is a YouTube pop sensation desperate to become .</p>
-                                        <a href="video.html" class="btn btn-lg"><img src="/images/play.png" alt="icn">Watch now</a>
+                                        <a href="{{ url('/video') }}" class="btn btn-lg"><img src="/images/play.png" alt="icn">Watch now</a>
                                     </div>
                                     <div class="right-wrap">
                                         <video autoplay muted loop id="myVideo">
@@ -126,7 +126,7 @@
                     <div class="col-sm-12">
                         <div class="slide-slider-full owl-carousel owl-theme">
                             <div class="owl-items">
-                                <a class="slide-one" href="season.html">
+                                <a class="slide-one" href="{{ url('/video') }}">
                                     <div class="slide-image"><img src="/images/s5.jpg" alt="image"></div>
                                     <div class="slide-content">
                                         <h2>Made in haven <img src="/images/plus.png" alt="icon"></h2>
