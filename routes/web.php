@@ -18,7 +18,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'landing'])->name('
 Route::post('/logout',[SessionController::class, 'logout'])->name('logout');
 
 // Grup Middleware 'auth' untuk rute yang memerlukan otentikasi
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
     Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');

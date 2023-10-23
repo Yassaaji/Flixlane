@@ -126,9 +126,9 @@ class FilmController extends Controller
         $filmLama = Film::where('id', $id)->first();
         if(!empty($request->file('thumbnile'))){
             $thumbnile = $request->file('thumbnail');
-            $tumnileName = uniqid() . '.' . $thumbnile->getClientOriginalExtension();
-            Storage::delete('tumnile/'. $filmLama->thumbnile);
-            $thumbnile->storeAs('tumnile/', $tumnileName);
+            $thumbnileName = uniqid() . '.' . $thumbnile->getClientOriginalExtension();
+            Storage::delete('thumbnile/'. $filmLama->thumbnile);
+            $thumbnile->storeAs('thumbnile/', $thumbnileName);
         }
 
         $data = [
@@ -138,7 +138,7 @@ class FilmController extends Controller
          'durasi' => $request->durasi,
          'tayang' => $request->tayang,
          'sinopsis' => $request->sinopsis,
-         'thumbnile' => empty($request->file('thumbnail')) ? $filmLama->thumbnile : $tumnileName
+         'thumbnile' => empty($request->file('thumbnail')) ? $filmLama->thumbnile : $thumbnileName
 
         ];
         $filmLama->update($data);
@@ -151,10 +151,10 @@ class FilmController extends Controller
     public function destroy(Film $film)
     {
         $film->delete();
-        Storage::delete('tumnile' . $film->thumbnile);
+        Storage::delete('thumbnile' . $film->thumbnile);
         Storage::delete('video' . $film->video);
 
-        $film->save();
+        // $film->save();
 
         return redirect()->route('daftarfilm')->with('success', 'Data berhasil dihapus');
     }
