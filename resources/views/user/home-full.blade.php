@@ -33,8 +33,8 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="banner-slider owl-carousel owl-theme">
-              <div class="owl-items">
                 @foreach ($films as $fl)
+                <div class="owl-items">
                   <div class="banner-wrap justify-content-between align-items-center">
                     <div class="left-wrap">
                       <h2>{{ $fl->judul }}</h2>

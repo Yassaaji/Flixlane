@@ -55,11 +55,16 @@ class User extends Authenticatable
     ];
 
     /**
-     * The accessors to append to the model's array form. 
+     * The accessors to append to the model's array form.
      *
      * @var array<int, string>
      */
     // protected $appends = [
     //     'profile_photo_url',
     // ];
+
+    public function Komentar()
+    {
+        return $this->hasMany(Komentar::class);
+    }
 }

@@ -27,16 +27,20 @@
             z-index: 999;
         }
 
+        .rounded-circle {
+        border-radius: 50%;
+        }
+
     </style>
 </head>
 <body class="video-player" style="background-color: black">
     @section('content')
     <div class="container">
-        <div class="video-details" style="background-color: rgb(255, 255, 255); margin-top:0%">
+        <div class="video-details" style="background-color: rgb(255, 255, 255); margin-top: 0%;">
             <div class='player-container'>
-                <a href="{{ url('/home') }}" class="close-video-player"><i class="ti-close"></i></a>
                 <div class='player'>
-                    <video id="video" src="{{ asset('storage/video/' . $film->vidio) }}" playsinline=""></video>
+                    <a href="{{ url('/home') }}" class="close-video-player"><i class="ti-close"></i></a> <!-- Tombol Close -->
+                    <video id="video" src="{{ asset('storage/video/' . $film->vidio) }}" playsinline></video>
                     <div class='play-btn-big'></div>
                     <div class='controls'>
                         <div class="time"><span class="time-current"></span><span class="time-total"></span></div>
@@ -101,44 +105,48 @@
     </div>
     <div class="komentar-content card py-4 px-4 mt-4 mb-3">
         {{-- Kirim Komentar --}}
-        <form id="addKomentar">
+        {{-- @dd($Komentar) --}}
+        <form id="addKomentar" action="{{ route('komentar.create') }}" method="post">
           @csrf
-          <input type="hidden" id="post_id" name="post_id" value="">
+          <input type="hidden" id="film_id" name="film_id" value="{{ $id }}">
           <div class="card mb-3 p-2">
             <div class="form-floating d-flex">
-              <input type="text" name="komentar" id="komentar" class="form-control me-2" id="floatingInput" placeholder="">
-              <label for="floatingInput" style="margin-right: 100px; padding-top:10px; padding-right: 830px">Comments</label>
-              <button type="submit" class="btn btn-primary" style="margin-right: 20px; padding-top:10px;"><i class="bi bi-send-fill"></i></button>
+              <input type="text" name="komentar" id="komentar" class="form-control me-2" id="floatingInput" placeholder="Komentar">
+              <label for="floatingInput"></label>
+              <button type="submit" name="submit" class="btn btn-primary"><i class="bi bi-send-fill"></i></button>
             </div>
           </div>
         </form>
         {{-- Foreach molai dari sini! --}}
         <div id="itemKomentar">
-          {{-- @forelse ($Komentar as $komentar) --}}
-            <div class="card mb-4 comment-">
+          @forelse ($Komentar as $komentar)
+            <div class="card mb-4 comment-{{ $komentar->id }}">
               <div class="chat px-4 pt-3 d-flex justify-content-between">
                 <div class="left d-flex">
-                  <div class="profile me-3">
-                    <div class="photo">
-                      <img class="rounded-circle" width="45px" height="45px"
-                        src="/asset/theK.jpg" alt="" style="margin-right: 10px;">
+                    <div class="profile me-3">
+                        <div class="photo rounded-circle">
+                            @if (Auth::user()->profile)
+                            <img src="{{ asset('storage/' . Auth::user()->profile) }}" alt="Profile Picture" id="preview-picture">
+                            @else
+                                <img src="{{ asset('images/profiledefault.jpg') }}" alt="Default Profile Image">
+                            @endif
+                        </div>
                     </div>
-                  </div>
                   <div class="chat-column">
                     <div class="username">
-                      <p>bjir</p>
+                      <p>{{ $komentar->user->name }}</p>
                     </div>
                     <div class="text-chat">
-                      <p>ok</p>
+                      <p>{{ $komentar->komentar }}</p>
                     </div>
                     <div class="tanggal-chat">
-                      <p>23 oktober 2023</p>
+                      <p>{{ date('d F Y', strtotime($komentar->tanggal)) }}</p>
                     </div>
                   </div>
                 </div>
                 <div class="right">
                   <div class="action">
-                    {{-- @if ($komentar->user_id == $Auth->id) --}}
+                    @if (auth()->check() && $komentar->user_id == auth()->user()->id)
                       <button data-bs-toggle="dropdown" aria-expanded="false"><i
                           class="bi bi-three-dots-vertical"></i></button>
                       <ul class="dropdown-menu">
@@ -149,16 +157,16 @@
                           </button>
                         </li>
                       </ul>
-                    {{-- @endif --}}
+                    @endif
                   </div>
                 </div>
               </div>
             </div>
-          {{-- @empty --}}
-            {{-- <div class="empty-comment-div">
+          @empty
+            <div class="empty-comment-div">
               <p class="message">Be the first one to comment</p>
-            </div> --}}
-          {{-- @endforelse --}}
+            </div>
+          @endforelse
           <div>
             {{-- {{ $Komentar->links('pagination::bootstrap-5') }} --}}
           </div>
@@ -172,6 +180,130 @@
     <script src="{{ asset('js/scripts.js')}}"></script>
     <script src="{{ asset('js/video-player.js') }}"></script>
     @endsection
+
+    {{-- KOMENTAR AJAX --}}
+  {{-- <script>
+    $(document).ready(function() {
+      $('#addKomentar').submit(function(e) {
+        e.preventDefault();
+        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+        var formData = $(this).serialize();
+        var rute = $(this).attr('action');
+
+        $.ajax({
+        method: 'POST',
+        url: rute,
+        data: formData,
+        headers: {
+            'X-CSRF-TOKEN': "{{csrf_token()}}"
+        },
+        success: function(response) {
+            $('#addKomentar')[0].reset();
+
+            var newKomentarHtml =
+              '<div class="card mb-4 comment-' + response.newKomentar.id + '">' +
+              '  <div class="chat px-4 pt-3 d-flex justify-content-between">' +
+              '    <div class="left d-flex">' +
+              '      <div class="profile me-3">' +
+              '        <div class="photo">' +
+              '          <img class="rounded-circle" width="45px" height="45px" src="{{ asset('') }}' +
+              response.newKomentar.user.profile + '" alt="">' +
+              '        </div>' +
+              '      </div>' +
+              '      <div class="chat-column">' +
+              '        <div class="username">' +
+              '          <p>' + response.newKomentar.user.name + '</p>' +
+              '        </div>' +
+              '        <div class="text-chat">' +
+              '          <p>' + response.newKomentar.komentar + '</p>' +
+              '        </div>' +
+              '        <div class="tanggal-chat">' +
+              '          <p>' + response.newKomentar.tanggal + '</p>' +
+              '        </div>' +
+              '      </div>' +
+              '    </div>' +
+              '    <div class="right">' +
+              '      <div class="action">' +
+              '        <button data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>' +
+              '        <ul class="dropdown-menu">' +
+              '          <li><button data-komentar-id="' + (response.newKomentar.id || 'INVALID_ID') +
+              '" class="delete-comment-btn dropdown-item" style="border: none; background: none; cursor: pointer;"><i class="bi bi-trash"> Delete</i></button></li>' +
+              '        </ul>' +
+              '      </div>' +
+              '    </div>' +
+              '  </div>' +
+              '</div>';
+            //   window.location.href = "{{ url('/user.video') }";
+
+
+            setTimeout(function() {
+              addDeleteCommentListener();
+            }, 1000);
+
+            $('#itemKomentar').prepend(newKomentarHtml);
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      });
+
+      function addDeleteCommentListener() {
+        $('#itemKomentar').on('click', '.delete-comment-btn', function(e) {
+          e.preventDefault();
+
+          var komentarId = $(this).data('komentar-id');
+
+          var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+          $.ajax({
+            type: 'DELETE',
+            url: '{{ url('komentar/destroy') }}/' + komentarId,
+            data: {
+              '_token': csrfToken,
+              'komentar_id': komentarId
+            },
+            success: function(response) {
+              if (response.success) {
+                $('.comment-' + komentarId).remove();
+              }
+            },
+            error: function(xhr, status, error) {
+              console.log('XHR:', xhr);
+              console.log('Status:', status);
+              console.log('Error:', error);
+              console.error('Gagal menghapus komentar');
+            }
+          });
+        });
+      }
+
+      $('#itemKomentar').on('click', '.delete-comment-btn', function(e) {
+        e.preventDefault();
+        var komentarId = $(this).data('komentar-id');
+        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+          type: 'DELETE',
+          url: '{{ url('komentar/destroy') }}/' + komentarId,
+          data: {
+            '_token': csrfToken,
+            'komentar_id': komentarId
+          },
+          success: function(response) {
+            if (response.success) {
+              $('.comment-' + response.komentar_id).remove();
+            } else {
+              console.error('Gagal menghapus komentar');
+            }
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      });
+    });
+  </script> --}}
 </body>
 
 </html>

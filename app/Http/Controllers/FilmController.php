@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Film;
 use App\Models\Kategori;
 use App\Models\Penayangan;
+use App\Models\Komentar;
 use App\Http\Requests\StoreFilmRequest;
 use App\Http\Requests\UpdateFilmRequest;
 use Illuminate\Support\Facades\Request;
@@ -18,9 +19,10 @@ class FilmController extends Controller
     public function index($id)
     {
         $film = Film::find($id);
-
-        return view('user.video', compact('film'));
+        $Komentar = Komentar::where('film_id', $id)->get();
+        return view('user.video', compact('film', 'Komentar', 'id'));
     }
+
 
     /**
      * Show the form for creating a new resource.

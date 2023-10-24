@@ -10,5 +10,13 @@ class Komentar extends Model
     use HasFactory;
     protected $guarded = [];
 
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function Film(){
+        return $this->belongsTo(Post::class,'film_id');
+    }
+
 }

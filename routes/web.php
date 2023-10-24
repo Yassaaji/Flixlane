@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\KomentarController;
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
@@ -27,6 +28,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/favorite', [App\Http\Controllers\HomeController::class, 'favorite'])->name('favorite');
     Route::get('/detail', [App\Http\Controllers\HomeController::class, 'detail'])->name('detail');
     Route::get('/video/{id}', [App\Http\Controllers\FilmController::class, 'index'])->name('video');
+    Route::post('/komentar/create', [KomentarController::class, 'create'])->name('komentar.create');
+    Route::get('/komentar/{id}', [KomentarController::class, 'index'])->name('komentar.index');
 
     Route::put('/profile/{id}', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.edit');
     Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index']);

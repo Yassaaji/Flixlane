@@ -17,4 +17,19 @@ class Film extends Model
     {
         return $this->belongsTo(Kategori::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function Film()
+    {
+        return $this->hasMany(Film::class);
+    }
+
+    public function komentar()
+    {
+        return $this->belongsTo(Komentar::class);
+    }
 }

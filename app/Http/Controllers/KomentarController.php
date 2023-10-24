@@ -2,18 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Komentar;
+use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Models\Film;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class KomentarController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(string $id)
     {
-        //
+        try {
+            $Auth = Auth::user();
+            $Film = Film::where('id', $id)->first();
+            $Komentar = Komentar::where('film_id', $Film->id)->orderBy('created_at', 'desc')->paginate(25);
+            // $Post->liked = Like::where('post_id', $Post->id)
+            //     ->where('user_id', $Auth->id)
+            //     ->exists();
+
+            if ($Auth->role === 'user') {
+                return view('user.video', compact('Film', 'Komentar', 'Auth', 'id'));
+            }
+        } catch (Exception $th) {
+            return redirect()->route('home')->with('error', "Something went wrong, try again later");
+        }
     }
 
     /**
@@ -30,27 +49,28 @@ class KomentarController extends Controller
 
         $komentar = new Komentar([
             'user_id' => Auth::user()->id,
-            'post_id' => $request->post_id,
-            'komentar' => $request->komentar,
+            'film_id' => $request->input('film_id'),
+            'komentar' => $request->input('komentar'),
             'tanggal' => now()
         ]);
 
         $komentar->save();
 
-        $post = Post::findOrFail($request->post_id);
+        $film = Film::findOrFail($request->film_id);
+        return redirect()->back()->with('success', "Berhasil menambahkan komentar");
 
-        return response()->json([
-            'message' => 'Komentar berhasil disimpan.',
-            'newKomentar' => [
-                'user' => [
-                    'profile' => $komentar->user->profile,
-                    'name' => $komentar->user->name,
-                ],
-                'komentar' => $komentar->komentar,
-                'tanggal' => $komentar->created_at->format('d F Y'),
-                'id' => $komentar->id,
-            ]
-        ]);
+        // return response()->json([
+        //     'message' => 'Komentar berhasil disimpan.',
+        //     'newKomentar' => [
+        //         'user' => [
+        //             'profile' => $komentar->user->profile,
+        //             'name' => $komentar->user->name,
+        //         ],
+        //         'komentar' => $komentar->komentar,
+        //         'tanggal' => $komentar->created_at->format('d F Y'),
+        //         'id' => $komentar->id,
+        //     ]
+        // ]);
     }
 
     /**
