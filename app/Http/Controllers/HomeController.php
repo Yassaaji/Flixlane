@@ -74,8 +74,4 @@ class HomeController extends Controller
         return view('user/favorites');
     }
 
-    public function video()
-    {
-        return view('user/video');
-    }
 }

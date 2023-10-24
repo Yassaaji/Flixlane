@@ -16,6 +16,9 @@
     {{-- ICON Flaticon --}}
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/video-player.css')}}">
     <style>
         .user-avater {
             position: relative;

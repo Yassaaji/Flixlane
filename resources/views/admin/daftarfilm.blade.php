@@ -323,19 +323,16 @@
 
                                         <td>
                                             <div class="btn-group d-flex align-items-center" role="group">
-                                                <form class="d-flex " action="{{ route('film.destroy', $film->id) }}"
-                                                    method="post" style="width: 125px;">
-                                                    @csrf
                                                     <a href="{{ route('edit-film', $film->id) }}"
                                                         class="btn btn-dark btn-sm me-2"><i class="fas fa-pencil-alt"
                                                             style="margin-top: 8px"></i></a>
+                                                <form class="d-flex " action="{{ route('film.destroy', $film->id) }}"
+                                                    method="post" style="width: 125px;">
+                                                    @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger btn-sm me-2"
                                                         onclick="confirmDelete(event)"><i class="fas fa-trash-alt"></i>
                                                     </button>
-
-
-
                                                 </form>
                                             </div>
                                         </td>

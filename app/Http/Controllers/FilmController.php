@@ -15,9 +15,11 @@ class FilmController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
+        $film = Film::find($id);
 
+        return view('user.video', compact('film'));
     }
 
     /**

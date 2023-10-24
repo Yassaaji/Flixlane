@@ -22,7 +22,7 @@ class KomentarController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'komentar' => 'required'5
+            'komentar' => 'required'
         ], [
             'komentar.required' => 'Komentar harus di isi'
         ]);

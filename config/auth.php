@@ -99,6 +99,10 @@ return [
         ],
     ],
 
+    'verification' => [
+        'enabled' => true,
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Password Confirmation Timeout

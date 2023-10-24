@@ -26,7 +26,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/single', [App\Http\Controllers\HomeController::class, 'single'])->name('single');
     Route::get('/favorite', [App\Http\Controllers\HomeController::class, 'favorite'])->name('favorite');
     Route::get('/detail', [App\Http\Controllers\HomeController::class, 'detail'])->name('detail');
-    Route::get('/video', [App\Http\Controllers\HomeController::class, 'video'])->name('video');
+    Route::get('/video/{id}', [App\Http\Controllers\FilmController::class, 'index'])->name('video');
 
     Route::put('/profile/{id}', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.edit');
     Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index']);

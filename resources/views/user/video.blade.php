@@ -26,26 +26,26 @@
             cursor: pointer;
             z-index: 999;
         }
-        
+
     </style>
 </head>
-
 <body class="video-player" style="background-color: black">
     @section('content')
-    <div class="video-details" style="background-color: rgb(255, 255, 255); margin-top:0%">
-    <div class='player-container'>
-        <a href="{{ url('/home') }}" class="close-video-player"><i class="ti-close"></i></a>
-        <div class='player'>
-            <video id='video' src='images/video1.mp4' playsinline></video>
-            <div class='play-btn-big'></div>
-            <div class='controls'>
-                <div class="time"><span class="time-current"></span><span class="time-total"></span></div>
-                <div class='progress'>
-                    <div class='progress-filled'></div>
-                </div>
-                <div class='controls-main'>
-                    <div class='controls-left'>
-                        <div class='volume'>
+    <div class="container">
+        <div class="video-details" style="background-color: rgb(255, 255, 255); margin-top:0%">
+            <div class='player-container'>
+                <a href="{{ url('/home') }}" class="close-video-player"><i class="ti-close"></i></a>
+                <div class='player'>
+                    <video id="video" src="{{ asset('storage/video/' . $film->vidio) }}" playsinline=""></video>
+                    <div class='play-btn-big'></div>
+                    <div class='controls'>
+                        <div class="time"><span class="time-current"></span><span class="time-total"></span></div>
+                        <div class='progress'>
+                            <div class='progress-filled'></div>
+                        </div>
+                        <div class='controls-main'>
+                            <div class='controls-left'>
+                                <div class='volume'>
                             <div class='volume-btn loud'>
                                 <!-- Tombol Volume -->
                                 <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,16 +61,16 @@
                         </div>
                     </div>
                     <div class='play-btn paused'></div>
-                    <div class="controls-right">
-                        <div class='speed'>
-                            <ul class='speed-list'>
-                                <li class='speed-item' data-speed='0.5'>0.5x</li>
-                                <li class='speed-item' data-speed='0.75'>0.75x</li>
-                                <li class='speed-item active' data-speed='1'>1x</li>
-                                <li class='speed-item' data-speed='1.5'>1.5x</li>
-                                <li class='speed-item' data-speed='2'>2x</li>
-                            </ul>
-                        </div>
+                            <div class="controls-right">
+                                <div class='speed'>
+                                    <ul class='speed-list'>
+                                        <li class='speed-item' data-speed='0.5'>0.5x</li>
+                                        <li class='speed-item' data-speed='0.75'>0.75x</li>
+                                        <li class='speed-item active' data-speed='1'>1x</li>
+                                        <li class='speed-item' data-speed='1.5'>1.5x</li>
+                                        <li class='speed-item' data-speed='2'>2x</li>
+                                </ul>
+                            </div>
                         <div class='fullscreen'>
                             <!-- Tombol Fullscreen -->
                             <svg width="30" height="22" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -87,13 +87,13 @@
               <div class="left-left">
                 <div class="detail-post">
                   <div class="caption">
-                    <p style="font-size: 35px;"><strong> ikan </strong></p>
+                    <p style="font-size: 35px;"><strong>{{ $film->judul }}</strong></p>
                   </div>
                 </div>
               </div>
               <div class="description" style="line-height: 10px">
                 <p class="description-title fw-bold"><strong> Description</strong></p>
-                <p class="description-text" id="description-content">Ikan sdsgdg sad avbdf shdgjsds a</p>
+                <p class="description-text" id="description-content">{{ $film->sinopsis }}</p>
                 <button onclick="toggleDescription()" class="btn btn-sm mb-3" style="display: none" id="read-more-btn">Read More</button>
               </div>
             </div>
@@ -167,10 +167,10 @@
     </div>
     </div>
 
-    <script src="js/plugin.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/scripts.js"></script>
-    <script src="js/video-player.js"></script>
+    <script src="{{ asset('js/plugin.js')}}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('js/scripts.js')}}"></script>
+    <script src="{{ asset('js/video-player.js') }}"></script>
     @endsection
 </body>
 

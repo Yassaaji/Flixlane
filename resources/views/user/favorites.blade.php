@@ -21,10 +21,9 @@
 
         <!-- slider wrapper -->
         <div class="slide-wrapper search-wrap-slide mt-4">
+            @foreach ($Notifikasi as $notifikasi)
             <div class="container">
-
                 <div class="row">
-
                     <div class="col-md-4 col-lg-3 mb-3">
                         <a class="slide-one" href="{{ url('/video') }}">
                             <div class="slide-image"><img src="images/s5.jpg" alt="image"></div>
@@ -40,10 +39,8 @@
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
-        <!-- slider wrapper -->
-
-    </div>
 
 
 
