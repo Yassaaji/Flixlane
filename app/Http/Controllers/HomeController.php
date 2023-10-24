@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\User;
+use App\Models\Film;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +31,9 @@ class HomeController extends Controller
         $Auth = Auth::user();
 
         if ($Auth->role === 'user') {
-            return view('user/home-full', compact('Auth'));
+            $films = Film::all();
+            $kategori = Kategori::all();
+            return view('user/home-full', compact('Auth','films','kategori'));
         } elseif ($Auth->role === 'admin') {
             return redirect()->route('admin');
         }

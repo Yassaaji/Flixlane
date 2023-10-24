@@ -126,6 +126,7 @@
                     <div class="col-sm-12">
                         <div class="slide-slider-full owl-carousel owl-theme">
                             <div class="owl-items">
+                                @forelse ($films as $item)
                                 <a class="slide-one" href="{{ url('/video') }}">
                                     <div class="slide-image"><img src="/images/s5.jpg" alt="image"></div>
                                     <div class="slide-content">
@@ -137,6 +138,9 @@
                                         <span class="tag"><b>Action</b></span>
                                     </div>
                                 </a>
+                                @empty
+
+                                @endforelse
                             </div>
                         </div>
                     </div>

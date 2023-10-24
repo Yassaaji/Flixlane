@@ -45,7 +45,7 @@
 
                 <div class="col-5">
                     <div class="border-form px-2 ml-2">
-                        <input type="number" id="durasi" name="durasi" class="input-text" placeholder="Durasi" value="{{ old('durasi') }}" >
+                        <input type="time" id="durasi" name="durasi" class="input-text" placeholder="Durasi" value="{{ old('durasi') }}" >
                         @error('durasi')
                         <p class="text-danger">{{ $message}}</p>
                     @enderror

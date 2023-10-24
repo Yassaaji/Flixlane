@@ -299,8 +299,8 @@
                                 <tr>
                                     <th scope="col">NO</th>
                                     <th scope="col">JUDUL</th>
-                                    <th scope="col">GAMBAR</th>
                                     <th scope="col">VIDIO</th>
+                                    <th scope="col">GAMBAR</th>
                                     <th scope="col">TAYANG</th>
                                     <th scope="col">AKSI</th>
                                 </tr>
@@ -310,8 +310,14 @@
                                     <tr>
                                         <td>{{ $i + 1 }} </td>
                                         <td>{{ $film->judul }}</td>
-                                        <td><video src="{{ asset('storage/vidio') . $film->vidio }}"></video></td>
-                                        <td><img src="{{ asset('storage/tumnile/' . $film->tumnile) }}"
+                                        <td>
+                                            <video width="150" height="150" controls>
+                                                <source src="{{ asset('storage/video/' . $film->vidio) }}" type="video/mp4">
+                                                Vidio tidak tersedia.
+                                            </video>
+                                        </td>
+
+                                        <td><img width="120" height="150" src="{{ asset('storage/tumnile/' . $film->thumbnile) }}"
                                                 alt="{{ $film->judul }}" height="100px" width="100px"></td>
                                         <td>{{ $film->tayang }}</td>
 
