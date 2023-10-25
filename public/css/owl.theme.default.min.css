@@ -54,3 +54,13 @@
 .owl-theme .owl-dots .owl-dot:hover span {
     background: #869791
 }
+@media (min-width: 1025px) {
+
+    /* Atur gaya CSS khusus untuk perangkat laptop di sini */
+    .kotak {
+        /* style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;" */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+}
+}

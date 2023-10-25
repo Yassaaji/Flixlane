@@ -20,43 +20,42 @@
 <body class="full-wrap" style="background: black">
     @section('content')
         <!-- slider wrapper -->
-        @foreach ($films as $data)
-            <div class="slide-wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6 text-left mb-4 mt-4">
-                            <h2 style="color: white">{{ $data->kategori->kategori }}</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="slide-slider-full owl-theme">
-                                <div class="owl-items">
-                                    <a class="slide-one" href="{{ url('/video/' . $data->id) }}">
-                                        <div class="slide-image"><img
-                                                src="{{ asset('storage/tumnile/' . $data->thumbnile) }}" alt="image">
-                                        </div>
-                                        <div class="slide-content">
-                                            <h2>{{ $data->judul }}<i class="bi bi-heart-fill"
-                                                    style="font-size: 15px; margin-left: 100px; padding-left: 50px"></i>
-                                                <span class="total-like"
-                                                    style="font-size: 15px; padding-left: 5px">250</span></h2>
-                                            <p>{{ $data->sinopsis }}</p>
-                                            <span class="tag">{{ $data->durasi }}</span>
-                                            <span class="tag">{{ $data->tayang }}</span>
-                                            <span class="tag"><b>{{ $data->kategori->kategori }}</b></span>
-                                            <span class="tag"><b>{{ $data->minimal_usia }}+</b></span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+        <di class="slide-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6 text-left mb-4 mt-4">
+                        <h2 style="color: white"></h2>
                     </div>
                 </div>
+                <div class="d-flex row">
+                    @foreach ($films as $data)
+                <div class="col-3">
+                <div class="card">
+                    <div class="card-body" style="padding: 0;margin:0">
+                        <a class="slide-one" href="{{ url('/video/' . $data->id) }}" style="width: 100%;margin: 0;">
+                            <div class="slide-image">
+                                <img src="{{ asset('storage/tumnile/' . $data->thumbnile) }}" alt="image">
+                            </div>
+                            <div class="slide-content">
+                                <h2>{{ $data->judul }}<i class="bi bi-heart-fill"
+                                        style="font-size: 15px; margin-left: 100px; padding-left: 50px"></i>
+                                    <span class="total-like" style="font-size: 15px; padding-left: 5px">250</span>
+                                </h2>
+                                <p>{{ $data->sinopsis }}</p>
+                                <span class="tag">{{ $data->durasi }}</span>
+                                <span class="tag">{{ $data->tayang }}</span>
+                                <span class="tag"><b>{{ $data->kategori->kategori }}</b></span>
+                                <span class="tag"><b>{{ $data->minimal_usia }}+</b></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                </div>
+                @endforeach
+                </div>
             </div>
-        @endforeach
-        <!-- slider wrapper -->
-        </div>
+            <!-- slider wrapper -->
+        </di>
 
 
 
@@ -68,6 +67,6 @@
 </body>
 
 
-<!-- Mirrored from uitheme.net/vstream/season-full.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Oct 2023 03:29:25 GMT -->
+<!-- Mirrored from uitheme.net/vstream/season-full.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Oct 2023 03:29:25 GMT -->
 
 </html>

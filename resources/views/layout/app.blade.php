@@ -68,9 +68,6 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="search-div">
-                        <input type="text" placeholder="Seacrh">
-                    </div>
                 </div>
 
             </div>
