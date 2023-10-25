@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="d-flex row">
-                    @foreach ($films as $data)
+                    @forelse ($films as $data)
                 <div class="col-3">
                 <div class="card">
                     <div class="card-body" style="padding: 0;margin:0">
@@ -51,8 +51,15 @@
                     </div>
                 </div>
                 </div>
-                @endforeach
+                @empty
+                <div class="container-fluid py-5 px-5" style="text-align: center; position: relative;">
+                    <h1>Data Kategori Kosong</h1>
                 </div>
+                @endforelse
+                </div>
+                {{-- <div>
+
+                </div> --}}
             </div>
             <!-- slider wrapper -->
         </di>
