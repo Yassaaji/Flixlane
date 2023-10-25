@@ -10,9 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Film extends Model
 {
     use HasFactory;
-    protected $guarded=[
-
-    ];
+    protected $guarded=[];
 
     public function kategori():BelongsTo
     {

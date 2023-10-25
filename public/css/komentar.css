@@ -516,4 +516,17 @@ aside .card .card .card-custome .label-card .captions p {
         color: red;
         text-decoration: none;
     }
+    .tag-button {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        margin-right: 5px;
+        color: #0037ff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .tag-button:hover {
+        background-color: #ccc;
+    }
 }

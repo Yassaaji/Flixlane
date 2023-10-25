@@ -38,16 +38,16 @@
                             <p class="lead fw-normal mb-4 me-3" style="font-size: 30px; color: #ffff"><strong>Register</strong></p>
                         </div>
                         <div class="mb-2" style="color: #eee">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" value="{{ Session::get('name')}}" name="name" class="form-control @error('name')is-invalid @enderror">
+                            <label for="name" class="form-label">Nama Panjang</label>
+                            <input type="text" value="{{ old('name') }}" name="name" class="form-control @error('name')is-invalid @enderror">
                         </div>
                         <div class="mb-2" style="color: #eee">
                             <label for="name" class="form-label">Username</label>
-                            <input type="text" value="{{ Session::get('username')}}" name="username" class="form-control @error('username')is-invalid @enderror">
+                            <input type="text" value="{{ old('username') }}"" name="username" class="form-control @error('username')is-invalid @enderror">
                         </div>
                         <div class="mb-2" style="color: #eee">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" value="{{ Session::get('email')}}" name="email" class="form-control @error('email')is-invalid @enderror">
+                            <input type="email" value="{{ old('email') }}" name="email" class="form-control @error('email')is-invalid @enderror">
                         </div>
                         <div class="mb-2" style="color: #eee">
                             <label for="password" class="form-label">Password</label>

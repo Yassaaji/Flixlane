@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Profile;
 use App\Models\User;
-use App\Http\Controllers\Controller;
 use App\Models\Kategori;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB; // Tambahkan ini untuk menggunakan DB::beginTransaction()
@@ -22,16 +22,16 @@ class ProfileController extends Controller
         }
     }
 
-    public function create(Request $request)
-    {
-        Profile::create([
-            'profile' => $request->profile,
-            'nama' => $request->nama,
-            'username' => $request->kota,
-        ]);
+    // public function create(Request $request)
+    // {
+    //     Profile::create([
+    //         'profile' => $request->profile,
+    //         'nama' => $request->nama,
+    //         'username' => $request->kota,
+    //     ]);
 
-        return redirect()->route('profile.index')->with('success', 'Profil berhasil dibuat.');
-    }
+    //     return redirect()->route('profile.index')->with('success', 'Profil berhasil dibuat.');
+    // }
 
     public function store(Request $request)
     {
@@ -67,9 +67,9 @@ class ProfileController extends Controller
             'profile.max' => 'Ukuran Foto melebihi maksimal',
         ]);
 
-        if (Auth::user()->id != $id) {
-            return redirect()->back()->with('error', 'Tidak bisa mengubah Data ' . Auth::user()->name);
-        }
+        // if (Auth::user()->id != $id) {
+        //     return redirect()->back()->with('error', 'Tidak bisa mengubah Data ' . Auth::user()->name);
+        // }
 
         try {
             $update_user = User::find(Auth::user()->id);

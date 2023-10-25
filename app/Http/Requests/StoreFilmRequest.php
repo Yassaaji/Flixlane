@@ -29,7 +29,7 @@ class StoreFilmRequest extends FormRequest
             'tayang' => 'required|after_or_equal:today',
             'sinopsis' => 'required|string|max:1000',
             'thumbnile' => 'image',
-            'vidio' => 'video'
+            'vidio' => 'video|mimes:png,jpg'
         ];
     }
     public function messages(): array

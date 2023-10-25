@@ -39,37 +39,54 @@ class FilmController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StoreFilmRequest $request)
-    {
-        // dd($request->all());
-        $thumbnile = $request->file('thumbnail');
-        $tumnileName = uniqid() . '.' . $thumbnile->getClientOriginalExtension();
-        $thumbnile->storeAs('tumnile/', $tumnileName);
+{
+    // dd($request->all());
+    $request->validate([
+        'judul' => 'string|max:100',
+        'minimal_usia' => 'integer|gt:0',
+        'kategori_id' => 'string',
+        'durasi' => 'max:10',
+        'tayang' => 'date',
+        'sinopsis' => 'string|max:1000',
+        'thumbnail' => 'required|image|max:5000|mimes:jpeg,png,jpg',
+        'video' => 'mimes:mp4',
+    ], [
+        'judul.string' => 'Judul harus menggunakan huruf.',
+        'judul.max' => 'Judul maksimal 100 karakter.',
+        'minimal_usia.integer' => 'Usia harus menggunakan angka.',
+        'minimal_usia.gt:0' => 'Minimal usia tidak boleh melebihi 100 karakter.',
+        'durasi.max' => 'Durasi maksimal 10 karakter.',
+        'tayang.date' => 'Tayang harus berupa tanggal.',
+        'sinopsis.string' => 'Sinopsis harus berupa huruf.',
+        'sinopsis.max' => 'Sinopsis maksimal 1000 karakter.',
+        'thumbnail.required' => 'Thumbnail harus diisi.',
+        'thumbnail.image' => 'Thumbnail harus berupa gambar.',
+        'thumbnail.mimes' => 'Thumbnail harus berupa gambar.',
+        'thumbnail.max' => 'Ukuran thumbnail maksimal 5MB.',
+        'video.mimes' => 'Berkas harus berupa video MP4.',
+    ]);
 
-        $video = $request->file('video');
-        $videoName = uniqid() . '.' . $video->getClientOriginalExtension();
-        $video->storeAs('video/', $videoName);
+    $thumbnail = $request->file('thumbnail');
+    $thumbnailName = uniqid() . '.' . $thumbnail->getClientOriginalExtension();
+    $thumbnail->storeAs('thumbnail/', $thumbnailName);
 
-        $film = new Film;
-        $film->vidio = $videoName;
-        $film->thumbnile = $tumnileName;
-        $film->judul = $request->judul;
-        $film->sinopsis = $request->sinopsis;
-        $film->durasi = $request->durasi;
-        $film->minimal_usia = $request->minimal_usia;
-        $film->kategori_id = $request->kategori;
-        $film->tayang = $request->tayang;
+    $video = $request->file('video');
+    $videoName = uniqid() . '.' . $video->getClientOriginalExtension();
+    $video->storeAs('video/', $videoName);
 
-        // dd($film);
-        $film->save();
+    $film = new Film;
+    $film->vidio = $videoName;
+    $film->thumbnile = $thumbnailName;
+    $film->judul = $request->judul;
+    $film->sinopsis = $request->sinopsis;
+    $film->durasi = $request->durasi;
+    $film->minimal_usia = $request->minimal_usia;
+    $film->kategori_id = $request->kategori;
+    $film->tayang = $request->tayang;
+    $film->save();
 
-        // $penayangan = new Penayangan;
-        // $penayangan->film_id = $film->id;
-        // $penayangan->penonton = 0;
-
-        // $penayangan->save();
-
-        return redirect()->route('daftarfilm')->with('success', 'berhasil menambah data');
-    }
+    return redirect()->route('daftarfilm')->with('success', 'Berhasil menambah data.');
+}
 
     /**
      * Display the specified resource.
@@ -77,8 +94,8 @@ class FilmController extends Controller
     public function show(Film $film)
     {
         $film->load('kategori');
-
-        return view('user.video',compact('film'));
+        $kategori = Kategori::all();
+        return view('user.video',compact('film', 'kategori'));
     }
 
     public function daftarfilm()
@@ -113,7 +130,7 @@ class FilmController extends Controller
             'tayang' => 'date',
             'sinopsis' => 'string|max:1000',
             'thumbnile' => 'image|max:5000',
-            'vidio' => 'video'
+            'vidio' => 'file|mimetypes:video/mp4',
         ],[
             'judul.string' => 'judul harus menggunakan huruf',
             'judul.max' => 'judul maksimal 100 karakter',
@@ -125,7 +142,8 @@ class FilmController extends Controller
             'sinopsis.max' => 'sinopsis maksimal 1000 karakter',
             'thumbnile.image' => 'thumbnile harus berupa gambar',
             'thumbnile.max' => 'thumbnile maksimal 50MB',
-            'video' => 'video harus berupa mp4'
+            'vidio.file' => 'Berkas harus berupa video.',
+            'vidio.mimetypes' => 'Berkas harus berupa video MP4.',
         ]);
 
         $filmLama = Film::where('id', $id)->first();
@@ -139,7 +157,7 @@ class FilmController extends Controller
         $data = [
          'judul' => $request->judul,
          'minimal_usia' => $request->minimal_usia,
-         'kategori_id' => $request->kategori,
+         'kategori_id' => $request->kategori_id,
          'durasi' => $request->durasi,
          'tayang' => $request->tayang,
          'sinopsis' => $request->sinopsis,
@@ -156,10 +174,9 @@ class FilmController extends Controller
     public function destroy(Film $film)
     {
         $film->delete();
-        Storage::delete('thumbnile' . $film->thumbnile);
-        Storage::delete('video' . $film->video);
 
-        // $film->save();
+        Storage::delete('thumbnail/' . $film->thumbnile);
+        Storage::delete('video/' . $film->vidio);
 
         return redirect()->route('daftarfilm')->with('success', 'Data berhasil dihapus');
     }

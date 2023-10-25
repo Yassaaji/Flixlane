@@ -21,26 +21,35 @@
 
         <!-- slider wrapper -->
         <div class="slide-wrapper search-wrap-slide mt-4">
-            @foreach ($Notifikasi as $notifikasi)
+            {{-- @foreach ($Notifikasi as $notifikasi) --}}
             <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-lg-3 mb-3">
-                        <a class="slide-one" href="{{ url('/video') }}">
-                            <div class="slide-image"><img src="images/s5.jpg" alt="image"></div>
-                            <div class="slide-content">
-                                <h2>Made in haven <i class="bi bi-heart-fill" style="font-size: 15px; margin-left: 100px; padding-left: 50px"></i> <span class="total-like" style="font-size: 15px; padding-left: 5px">250</span></h2>
-                                <p>Radhe is a singing prodigy determined to follow in the classical footsteps of his grandfather.</p>
-                                <span class="tag">2 h 20 min</span>
-                                <span class="tag">2020</span>
-                                <span class="tag"><b>HD</b></span>
-                                <span class="tag"><b>16+</b></span>
+                    {{-- <div class="col-md-4 col-lg-3 mb-3"> --}}
+                        <div class="d-flex row">
+                            @foreach ($bookmark as $bm)
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-body" style="padding: 0;margin:0">
+                                        <a class="slide-one" href="{{ url('/video/' . $bm->film->id) }}" style="width: 100%;margin: 0;">
+                                            <div class="slide-image">
+                                                <img src="{{ asset('storage/thumbnail/' . $bm->film->thumbnile) }}" style="height: 300px;" alt="image">
+                                            </div>
+                                                <div class="slide-content">
+                                                    <h2>{{$bm->film->judul}} </h2>
+                                                    <p>{{$bm->film->sinopsis}}</p>
+                                                    <span class="tag">{{ $bm->film->durasi }}</span>
+                                                    <span class="tag">{{ date('d F Y', strtotime($bm->film->tayang)) }}</span>
+                                                    <span class="tag"><b>{{ $bm->film->minimal_usia }}+</b></span>
+                                                </div>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                        </a>
-                    </div>
+                            @endforeach
+                        </div>
+                    {{-- </div> --}}
                 </div>
             </div>
-            @endforeach
-        </div>
+            {{-- @endforeach --}}
 
 
 

@@ -284,17 +284,21 @@
                 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
                 /* Bayangan saat dihover */
             }
+            .melani {
+                max-height: 500px;
+                overflow-y: auto;
+            }
         </style>
 
     <body>
 
-        <div class="container">
+        <div class="container" >
             <div class="card " style="margin-left: 10px; width: 100%; ">
-                <div class="card-body">
+                <div class="card-body" >
                     <a href="{{ route('tambahfilm') }}" class="btn btn-dark"><i class="fas fa-plus"></i> </a>
 
-                    <div class="table-responsive mt-4">
-                        <table class="table table-dark table-bordered">
+                    <div class="table-responsive mt-4 melani" >
+                        <table class="table table-dark table-bordered" >
                             <thead>
                                 <tr>
                                     <th scope="col">NO</th>
@@ -317,9 +321,9 @@
                                             </video>
                                         </td>
 
-                                        <td><img width="120" height="150" src="{{ asset('storage/tumnile/' . $film->thumbnile) }}"
+                                        <td><img width="120" height="150" src="{{ asset('storage/thumbnail/' . $film->thumbnile) }}"
                                                 alt="{{ $film->judul }}" height="100px" width="100px"></td>
-                                        <td>{{ $film->tayang }}</td>
+                                        <td>{{ date('d F Y', strtotime($film->tayang)) }}</td>
 
                                         <td>
                                             <div class="btn-group d-flex align-items-center" role="group">
@@ -346,7 +350,7 @@
             <!-- /.modal-dialog -->
         </div>
 
-    @empty
+            @empty
         @endforelse
         </tbody>
         </table>

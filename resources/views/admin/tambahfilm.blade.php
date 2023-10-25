@@ -27,12 +27,12 @@
                             <p class="text-danger">{{ $message}}</p>
                         @enderror
                         <input type="number" id="minimal_usia" name="minimal_usia" class="input-text"
-                            placeholder="Minimal Usia" min="0" value="{{ old('minimal_usia') }}">
+                            placeholder="Minimal Usia" min="0" value="{{ old('minimal_usia ') }}">
                             @error('minimal_usia')
                             <p class="text-danger">{{ $message}}</p>
                         @enderror
-                        <select name="kategori" id="kategori" class="input-text" value="{{ old('kategori') }}">
-                            <option value="" disabled selected>Kategori</option>
+                        <select name="kategori" id="kategori_id" class="input-text" value="{{ old('kategori_id') }}">
+                            <option value="{{ old('kategori_id') }}" disabled selected>Kategori</option>
                             @foreach ($kategori as $data)
                             <option value="{{ $data->id }}">{{ $data->kategori }}</option>
                             @endforeach
@@ -55,7 +55,7 @@
                             <p class="text-danger">{{ $message}}</p>
                         @enderror
                         <textarea name="sinopsis" id="sinopsis" class="input-text" cols="30" rows="3"
-                            placeholder="Sinopsis"value="{{ old('sinopsis') }}"></textarea>
+                            placeholder="Sinopsis" value="{{ old('sinopsis') }}"></textarea>
                             @error('sinopsis')
                             <p class="text-danger">{{ $message}}</p>
                         @enderror
@@ -67,13 +67,19 @@
                         <div class="col-md-6 text-center">
                             <label for="video" style="color: #ffffff">Pilih Video</label>
                             <input type="file" id="video" name="video" accept="video/*" class="input-file" required
-                                style="width: 100%;" value="{{ old('vidio') }}">
+                                style="width: 100%;" >
+                                @error('video')
+                            <p class="text-danger">{{ $message}}</p>
+                        @enderror
                         </div>
 
                         <div class="col-md-6 text-center">
                             <label for="thumbnail" style="color: #ffffff;">Pilih Gambar Thumbnail</label>
                             <input type="file" id="thumbnail" name="thumbnail" accept="image/*" class="input-file" required
                                 style="width: 100%;" value="{{ old('image') }}">
+                                @error('thumbnail')
+                            <p class="text-danger">{{ $message}}</p>
+                        @enderror
                         </div>
                     </div>
                 </div>

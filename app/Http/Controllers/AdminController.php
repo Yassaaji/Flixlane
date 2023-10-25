@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Film;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -11,7 +13,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.admin');
+        $user = User::where('role', 'user')->count();
+        $film = Film::count();
+        return view('admin.admin', compact('user', 'film'));
     }
 
     /**

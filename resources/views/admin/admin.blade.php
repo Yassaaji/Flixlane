@@ -134,36 +134,25 @@
     <div class="container-fluid mr-5 ml-5">
         <!-- Icon Cards-->
         <div class="row " >
-            <div class="col-xl-4 col-sm-6 mb-3">
-                <div class="card text-white bg-primary o-hidden h-100">
-                    <div class="card-body">
-                        <div class="card-body-icon">
-                            <i class="fa fa-fw fa-comments"></i>
-                        </div>
-                        <div class="mr-5">Jumlah Penonton</div>
-                        <div class="mr-5"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-sm-6 mb-3">
+            <div class="col-xl-4 col-sm-6 mb-3" style="margin-left: 90px;">
                 <div class="card text-white bg-warning o-hidden h-100">
                     <div class="card-body">
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-list"></i>
                         </div>
                         <div class="mr-5">Jumlah pengguna</div>
-                        <div class="mr-5 mt-2 ml-4"></div>
+                        <div class="mr-5 mt-2 ml-4">{{$user}}</div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-sm-6 mb-3">
+            <div class="col-xl-4 col-sm-6 mb-3" style="margin-left: 80px;">
                 <div class="card text-white bg-success o-hidden h-100">
                     <div class="card-body">
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-shopping-cart"></i>
                         </div>
                         <div class="mr-5">Jumlah FIlm</div>
-                        <div class="mr-5"></div>
+                        <div class="mr-5">{{$film}}</div>
                     </div>
                 </div>
             </div>

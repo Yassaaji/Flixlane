@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="{{ URL::asset('css/side.css') }}">
 </head>
 
-<body>
+<body style="background-color: black">
     <div id="warraper">
-        <div id="logo"><span>ADM!N</span></div>
+        <div id="logo" style="background-color:rgb(6, 6, 54)"><span>ADM!N</span></div>
         <span id="show-label-menu">using only small screen</span>
-        <div id="left-menu">
+        <div id="left-menu" style="background-color:rgb(6, 6, 54)">
             <ul>
                 <li><a href="{{ route('admin') }}" class="nav-link text-white {{ request()->is('admin') ? 'active' : '' }}"><i class="fas fa-th"></i><span>Dashboard</span></a></li>
                 <li><a href="{{ route('tambahfilm') }}"><i class="fas fa-fire"></i><span>Film</span></a></li>
@@ -30,8 +30,8 @@
                 </li>
             </ul>
         </div>
-        <div id="top-header">
-            <i id="toggle-menu" class="fas fa-bars float-left"></i>
+        <div id="top-header" style="background-color:rgb(6, 6, 54)">
+            <i id="toggle-menu" class="fas fa-bars float-left" style="color:#99abba"></i>
         </div>
         <div id="main-content">
             <main>

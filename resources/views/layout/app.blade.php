@@ -16,6 +16,7 @@
     {{-- ICON Flaticon --}}
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/video-player.css')}}">
@@ -63,7 +64,7 @@
                         <div class="user-menu">
                             <ul>
                                 <li><a href="{{ url('/profile') }}"><i class="ti-user"></i>My Profile</a></li>
-                                <li><a href="{{ url('/favorite') }}"><i class="ti-heart"></i>My Favorites</a></li>
+                                <li><a href="{{ url('/bookmark') }}"><i class="fa-regular fa-bookmark"></i>Bookmark</a></li>
                                 <li><a href="{{ url('/sesi/logout') }}"><i class="ti-power-off"></i>Log Out</a></li>
                             </ul>
                         </div>

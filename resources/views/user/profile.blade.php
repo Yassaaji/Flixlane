@@ -66,7 +66,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="color: white">Name:</td>
+                                <td style="color: white">Nama Panjang:</td>
                                 <td><input type="text" name="name" class="form-control" value="{{ Auth::user()->name }}"></td>
                             </tr>
                             <tr>

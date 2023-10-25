@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\bookmark;
 use App\Models\User;
 use App\Models\Film;
 use App\Models\Kategori;
@@ -71,10 +72,5 @@ class HomeController extends Controller
     public function profile()
     {
         return view('user/profile');
-    }
-
-    public function favorite()
-    {
-        return view('user/favorites');
     }
 }
