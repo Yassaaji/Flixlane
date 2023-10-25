@@ -128,7 +128,7 @@
                 <div class="chat px-4 pt-3 d-flex justify-content-between">
                     <div class="left d-flex">
                         <div class="profile me-3">
-                            <div class="photo rounded-circle">
+                            <div class="photo rounded-circle" style="margin-right: 10px;">
                                 @if ($komentar->user->profile)
                                 <img src="{{ asset('storage/' . $komentar->user->profile) }}" alt="Profile Image" width="45px" height="45px">
                                 @else

@@ -10,7 +10,7 @@
         var textCurrent = document.querySelector('.time-current');
         var textTotal = document.querySelector('.time-total');
         var speedBtns = document.querySelectorAll('.speed-item');
-        var fullscreenBtn =document.querySelector('.fullscreen'); 
+        var fullscreenBtn =document.querySelector('.fullscreen');
 
         //GLOBAL VARS
         let lastVolume = 1;
@@ -21,7 +21,7 @@
             if (video.paused) {
                 video.play();
             } else {
-                video.pause();  
+                video.pause();
             }
             playBtn.classList.toggle('paused');
         }
@@ -44,7 +44,7 @@
         function changeVolume(e) {
                 volumeBtn.classList.remove('muted');
                 let volume = e.offsetX/volumeSlider.offsetWidth;
-                volume<0.1 ? volume = 0 : volume=volume; 
+                volume<0.1 ? volume = 0 : volume=volume;
                 volumeFill.style.width = `${volume*100}%`;
                 video.volume = volume;
                 if (volume > 0.7) {
@@ -117,12 +117,19 @@
                     return;
             }
         }
+        function togglePlayBtn() {
+            playBtn.classList.toggle('playing');
+        }
+        function videoEnded() {
+            playBtn.classList.add('paused');
+        }
         //EVENT LISTENERS
         playBtn.addEventListener('click', togglePlay);
         video.addEventListener('click', togglePlay);
         video.addEventListener('play', togglePlayBtn);
         video.addEventListener('pause', togglePlayBtn);
         video.addEventListener('ended', togglePlayBtn);
+        video.addEventListener('ended', videoEnded);
         video.addEventListener('timeupdate', updateProgress);
         video.addEventListener('canplay', updateProgress);
         volumeBtn.addEventListener('click', toggleMute);
