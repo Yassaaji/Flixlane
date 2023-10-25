@@ -1,14 +1,16 @@
 <?php
 
+
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\KomentarController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\KomentarController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 
 // Route::get('/', function () {
@@ -65,6 +67,25 @@ Route::post('/create', [SessionController::class, 'create'])->name('submit.regis
 //logout
 Route::get('/sesi/logout', [SessionController::class,'logout']);
 
+
+// //verify
+// Route::get('/sesi-login', function(){
+//     return'ini halaman login';
+// });
+// Route::get('/email/verify', function () {
+//     return view('auth.verify-email');
+// })->middleware('auth')->name('verification.notice');
+
+// Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+//     $request->fulfill();
+
+//     return redirect('/sesi');
+// })->middleware(['auth', 'signed'])->name('verification.verify');
+
+// Route::get('verify-email',function(){
+//     return 'test';
+
+// })->middleware(['auth','verified']);
 
 // Auth::routes();
 

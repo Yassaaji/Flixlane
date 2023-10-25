@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB; // Tambahkan ini untuk menggunakan DB::beginTransaction()
@@ -14,9 +15,10 @@ class ProfileController extends Controller
 {
     public function index()
     {
+        $kategori = Kategori::all();
         $Profile = Auth::user();
         if (Auth::user()->role === 'user') {
-            return view('User.profile', compact('Profile'));
+            return view('User.profile', compact('Profile','kategori'));
         }
     }
 
