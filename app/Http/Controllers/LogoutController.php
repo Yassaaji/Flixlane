@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Logout;
-
 use Illuminate\Http\Request;
 
 class LogoutController extends Controller
@@ -19,6 +18,5 @@ class LogoutController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('login')->with('success', 'Data Berhasil logout');
-        return redirect()->route('login');
     }
 }

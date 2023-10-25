@@ -18,9 +18,10 @@ class FilmController extends Controller
      */
     public function index($id)
     {
+        $kategori = Kategori::all();
         $film = Film::find($id);
         $Komentar = Komentar::where('film_id', $id)->get();
-        return view('user.video', compact('film', 'Komentar', 'id'));
+        return view('user.video', compact('film','kategori', 'Komentar', 'id'));
     }
 
 

@@ -33,7 +33,7 @@ class HomeController extends Controller
         if ($Auth->role === 'user') {
             $films = Film::all();
             $kategori = Kategori::all();
-            return view('user/home-full', compact('Auth','films','kategori'));
+            return view('user/home-full', compact('Auth', 'films', 'kategori'));
         } elseif ($Auth->role === 'admin') {
             return redirect()->route('admin');
         }
@@ -49,9 +49,13 @@ class HomeController extends Controller
         return view('user/search-full');
     }
 
-    public function season()
+    public function Anime($id)
     {
-        return view('user/season-full');
+        $kategori = Kategori::get();
+
+        $films = Film::with('kategori')->where('kategori_id', $id)->get();
+
+        return view('user/season-full', compact('films', 'kategori'));
     }
 
     public function landing()
@@ -73,5 +77,4 @@ class HomeController extends Controller
     {
         return view('user/favorites');
     }
-
 }

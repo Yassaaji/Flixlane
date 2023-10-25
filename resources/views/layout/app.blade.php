@@ -45,11 +45,9 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                        <ul class="navbar-nav nav-menu float-none text-center">
                             <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/season') }}">Anime</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/single') }}">Drakor</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/search') }}">Drachin</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/detail') }}">Action</a></li>
-                            {{-- <li class="nav-item"><a class="nav-link" href="{{ url('/video') }}">Video</a></li> --}}
+                            @foreach ($kategori as $kt)
+                            <li class="nav-item"><a class="nav-link" href="{{ Route('Anime', $kt->id) }}">{{ $kt->kategori }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

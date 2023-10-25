@@ -6,9 +6,10 @@ use Illuminate\Foundation\Application;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KomentarController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SessionController;
-use App\Http\Controllers\KomentarController;
+
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
@@ -23,7 +24,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
     Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
-    Route::get('/season', [App\Http\Controllers\HomeController::class, 'season'])->name('season');
+    Route::get('/Anime/{id}', [App\Http\Controllers\HomeController::class, 'Anime'])->name('Anime');
     Route::get('/single', [App\Http\Controllers\HomeController::class, 'single'])->name('single');
     Route::get('/favorite', [App\Http\Controllers\HomeController::class, 'favorite'])->name('favorite');
     Route::get('/detail', [App\Http\Controllers\HomeController::class, 'detail'])->name('detail');
