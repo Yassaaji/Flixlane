@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <div class="profile-picture">
-                       @if (Auth::user()->profile)
+                        @if (Auth::user()->profile)
                         <img src="{{ asset('storage/' . Auth::user()->profile) }}" height="100%" width="150%" alt="Profile Picture" id="preview-picture">
                         @else
                             <img src="{{ asset('images/profiledefault.jpg') }}" alt="Default Profile Image">

@@ -12,26 +12,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/video-player.css">
-
-    <style>
-        /* CSS untuk mengatur tata letak video dan ikon silang */
-        .video-container {
-            position: relative;
-        }
-
-        .close-video-player {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            z-index: 999;
-        }
-
-        .rounded-circle {
-        border-radius: 50%;
-        }
-
-    </style>
 </head>
 <body class="video-player" style="background-color: black">
     @section('content')
@@ -119,54 +99,56 @@
         </form>
         {{-- Foreach molai dari sini! --}}
         <div id="itemKomentar">
-          @forelse ($Komentar as $komentar)
+            @foreach ($Komentar as $komentar)
             <div class="card mb-4 comment-{{ $komentar->id }}">
-              <div class="chat px-4 pt-3 d-flex justify-content-between">
-                <div class="left d-flex">
-                    <div class="profile me-3">
-                        <div class="photo rounded-circle">
-                            @if (Auth::user()->profile)
-                            <img src="{{ asset('storage/' . Auth::user()->profile) }}" alt="Profile Picture" id="preview-picture">
-                            @else
+                <div class="chat px-4 pt-3 d-flex justify-content-between">
+                    <div class="left d-flex">
+                        <div class="profile me-3">
+                            <div class="photo rounded-circle">
+                                @if ($komentar->user->profile)
+                                <img src="{{ asset('storage/' . $komentar->user->profile) }}" alt="Profile Image" width="45px" height="45px">
+                                @else
                                 <img src="{{ asset('images/profiledefault.jpg') }}" alt="Default Profile Image">
+                                @endif
+                            </div>
+                        </div>
+                        <div class="chat-column">
+                            <div class="username">
+                                <p>{{ $komentar->user->name }}</p>
+                            </div>
+                            <div class="text-chat">
+                                <p>{{ $komentar->komentar }}</p>
+                            </div>
+                            <div class="tanggal-chat">
+                                <p>{{ date('d F Y', strtotime($komentar->tanggal)) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="action">
+                            @if (auth()->check() && $komentar->user_id == auth()->user()->id)
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bi bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li>
+                                            <form action="{{ route('komentar.delete', $komentar->id) }}" method="post">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="delete-comment-btn dropdown-item" style="border: none; background: none; cursor: pointer;">
+                                                    <i class="bi bi-trash"> Delete</i>
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
                             @endif
                         </div>
                     </div>
-                  <div class="chat-column">
-                    <div class="username">
-                      <p>{{ $komentar->user->name }}</p>
-                    </div>
-                    <div class="text-chat">
-                      <p>{{ $komentar->komentar }}</p>
-                    </div>
-                    <div class="tanggal-chat">
-                      <p>{{ date('d F Y', strtotime($komentar->tanggal)) }}</p>
-                    </div>
-                  </div>
                 </div>
-                <div class="right">
-                  <div class="action">
-                    @if (auth()->check() && $komentar->user_id == auth()->user()->id)
-                      <button data-bs-toggle="dropdown" aria-expanded="false"><i
-                          class="bi bi-three-dots-vertical"></i></button>
-                      <ul class="dropdown-menu">
-                        <li>
-                          <button data-komentar-id="" class="delete-comment-btn dropdown-item"
-                            style="border: none; background: none; cursor: pointer;">
-                            <i class="bi bi-trash"> Delete</i>
-                          </button>
-                        </li>
-                      </ul>
-                    @endif
-                  </div>
-                </div>
-              </div>
             </div>
-          @empty
-            <div class="empty-comment-div">
-              <p class="message">Be the first one to comment</p>
-            </div>
-          @endforelse
+        @endforeach
           <div>
             {{-- {{ $Komentar->links('pagination::bootstrap-5') }} --}}
           </div>

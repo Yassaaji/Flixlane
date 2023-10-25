@@ -110,6 +110,7 @@ class KomentarController extends Controller
      */
     public function destroy(Komentar $komentar)
     {
-        //
+        $komentar->delete();
+        return redirect()->back()->with('success', 'Komentar berhasil dihapus.');
     }
 }

@@ -11,7 +11,7 @@
     <link rel="icon" type="/image/png" sizes="16x16" href="/images/favicon.png">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="{{ url('css/komentar.css ') }}">
+    <link rel="stylesheet" href="{{ asset('css/komentar.css ') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     {{-- ICON Flaticon --}}
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>

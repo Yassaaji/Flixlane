@@ -195,6 +195,7 @@
 .komentar-content .card .chat .left .profile .photo img {
     width: 45px;
     height: 45px;
+    border-radius: 50%;
 }
 
 .komentar-content .card .chat .left .chat-column {
@@ -486,6 +487,7 @@ aside .card .card .card-custome .label-card .captions p {
     .komentar-content .card .chat .left .profile .photo img {
         width: 20px;
         height: 20px;
+        border-radius: 50%;
     }
 
     .komentar-content .card .chat .left .chat-column .text-chat p {

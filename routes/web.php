@@ -30,6 +30,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/video/{id}', [App\Http\Controllers\FilmController::class, 'index'])->name('video');
     Route::post('/komentar/create', [KomentarController::class, 'create'])->name('komentar.create');
     Route::get('/komentar/{id}', [KomentarController::class, 'index'])->name('komentar.index');
+    Route::delete('/komentar/delete/{komentar}', [KomentarController::class, 'destroy'])->name('komentar.delete');
 
     Route::put('/profile/{id}', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.edit');
     Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index']);

@@ -49,22 +49,24 @@ class ProfileController extends Controller
 
     public function update(Request $request, $id)
     {
+        $update_user = User::find($id);
 
         $request->validate([
             'name' => 'required|max:100',
             'username' => 'required|max:100',
-            'profile' => 'image|mimes:jpeg,png,jpg,gif', // Anda dapat menyesuaikan tipe file dan ukuran maksimum yang diizinkan
+            'profile' => 'image|mimes:jpeg,png,jpg|max:2048', // Anda dapat menyesuaikan tipe file dan ukuran maksimum yang diizinkan
         ], [
             'name.required' => 'Name cannot be empty',
             'name.max' => 'Name max length is 100 characters',
             'username.required' => 'Username wajib di isi',
             'username.max' => 'Username max length is 100 characters',
             'profile.image' => 'The uploaded file must be an image.',
-            'profile.mimes' => 'Supported image formats are: jpeg, png, jpg, gif',
+            'profile.mimes' => 'Supported image formats are: jpeg, png, jpg',
+            'profile.max' => 'Ukuran Foto melebihi maksimal',
         ]);
 
         if (Auth::user()->id != $id) {
-            return redirect()->back()->with('error', 'Nice try ' . Auth::user()->name);
+            return redirect()->back()->with('error', 'Tidak bisa mengubah Data ' . Auth::user()->name);
         }
 
         try {
