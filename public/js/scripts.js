@@ -95,10 +95,9 @@ $(document).ready(function() {
                 items:3,
             },
             1600:{
-                items:5,
+                items:10,
             }
         }
-
     })
 
     $('.category-slider').owlCarousel({
@@ -208,10 +207,6 @@ $(document).ready(function() {
         return false;
     });
 
-
-
-
-
     $('.switchcolor').on('click', function() {
         $(this).addClass('active');
         $('.backdrop').addClass('active');
@@ -240,10 +235,6 @@ $(document).ready(function() {
     });
 
 });
-
-
-
-
 
 function PageScroll() {
    $(".scroll-tiger").on("click", function(e) {

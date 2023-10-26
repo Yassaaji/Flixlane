@@ -41,9 +41,7 @@
                                             <img src="{{ asset('storage/thumbnail/' . $data->thumbnile) }}" alt="image" height="300px">
                                         </div>
                                         <div class="slide-content">
-                                            <h2>{{ $data->judul }}<i class="bi bi-heart-fill"
-                                                    style="font-size: 15px; margin-left: 100px; padding-left: 50px"></i>
-                                                <span class="total-like" style="font-size: 15px; padding-left: 5px">250</span>
+                                            <h2>{{ $data->judul }}
                                             </h2>
                                             <p>{{ $data->sinopsis }}</p>
                                             <span class="tag">{{ $data->durasi }}</span>

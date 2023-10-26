@@ -35,10 +35,10 @@
                                             <span class="tag">{{ date('d F Y', strtotime($bm->film->tayang)) }}</span>
                                             <span class="tag"><b>{{ $bm->film->minimal_usia }}+</b></span>
                                         </a>
-                                        <a href="{{ route('bookmark.delete', $bm->id) }}" class="delete-icon" style="color: rgb(255, 255, 255);" onclick="event.preventDefault(); if (confirm('Yakin ingin menghapus bookmark?')) { document.getElementById('delete-form-{{ $bm->id }}').submit(); }">
+                                        <a href="{{ route('bookmark.delete', $bm->id) }}" class="delete-icon" style="color: rgb(255, 255, 255);" onclick="event.preventDefault(); confirmDelete({{ $bm->id }});">
                                             <i class="fa-solid fa-trash" style="margin-right: 10px"></i>
                                         </a>
-                                        <form id="delete-form-{{ $bm->id }}" action="{{ route('bookmark.delete', $bm->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form{{ $bm->id }}" action="{{ route('bookmark.delete', $bm->id) }}" method="POST" style="display: none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>
@@ -52,6 +52,30 @@
             </div>
         </div>
     @endsection
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function confirmDelete(bookmarkId) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-form' + bookmarkId).submit();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    Swal.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    )
+                }
+            });
+        }
+    </script>
     <script src="js/plugin.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
