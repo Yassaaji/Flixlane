@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\VerifyEmail;
+use App\Models\Verifytoken;
 use Illuminate\Http\Request;
+use App\Mail\verificationMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 class SessionController extends Controller
 {
@@ -90,7 +95,42 @@ class SessionController extends Controller
 
         User::create($data);
 
-        return redirect()->route('sesi-index')->with('success', 'Akun berhasil dibuat. Silahkan login.');
+        $validtoken = rand(10,100..'2023');
+        $get_token = new Verifytoken();
+        $get_token->token = $validtoken;
+        $get_token->email = $request->email;
+        $get_token -> save();
+        $get_user_email = $request->email;
+        $get_user_name = $request->name;
+        Mail::to($request->email)->send(new verificationMail($get_user_email,$validtoken,$get_user_name));
+
+
+
+
+        return redirect()->route('verifikasi')->with('success', 'Akun berhasil dibuat. Silahkan login.');
     }
 
+    public function verifikasi()
+    {
+        $token =  Verifytoken::all();
+        return view('sesi.verifikasi',compact('token'));
+    }
+    public function userverifikasi(Request $request)
+    {
+        $get_token = $request->token;
+        $get_token = Verifytoken::where('token',$get_token)->first();
+
+        if($get_token){
+            $get_token->is_activated = 1;
+            $get_token->save();
+            $user = user::where('email',$get_token->email)->first();
+            $user->is_activated = 1;
+            $user->save();
+            $getting_token = Verifytoken::where('token',$get_token->token)->first();
+            $getting_token->delete();
+            return redirect('/sesi')->with('success','Email anda sudah terverifikasi');
+        }else{
+            return redirect('/verifikasi')->with('error','Kode OTP anda tidak valid!!');
+        }
+    }
 }

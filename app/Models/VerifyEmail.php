@@ -12,5 +12,7 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
-    protected $guarded = [];
+    protected $guarded = [
+        
+    ];
 }

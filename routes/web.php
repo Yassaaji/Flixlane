@@ -67,35 +67,13 @@ Route::group(['middleware'=>'admin'],function(){
 Route::get('/sesi', [SessionController::class, 'index'])->name('sesi-index');
 Route::post('login', [SessionController::class, 'login'])->name('sesi-login');
 
+//verif
+Route::get('/verifikasi',[SessionController::class,'verifikasi'])->name('verifikasi');
+Route::post('/userverifikasi',[SessionController::class,'userverifikasi'])->name('userverifikasi');
+
 //register
 Route::get('/sesi-register', [SessionController::class, 'register'])->name('sesi-register');
 Route::post('/create', [SessionController::class, 'create'])->name('submit.register');
 
 //logout
 Route::get('/sesi/logout', [SessionController::class,'logout']);
-
-
-// //verify
-// Route::get('/sesi-login', function(){
-//     return'ini halaman login';
-// });
-// Route::get('/email/verify', function () {
-//     return view('auth.verify-email');
-// })->middleware('auth')->name('verification.notice');
-
-// Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-//     $request->fulfill();
-
-//     return redirect('/sesi');
-// })->middleware(['auth', 'signed'])->name('verification.verify');
-
-// Route::get('verify-email',function(){
-//     return 'test';
-
-// })->middleware(['auth','verified']);
-
-// Auth::routes();
-
-// Route::group(['middleware'=>['auth']], function(){
-//     Route::get('/home', [HomeController::class, 'home'])->name('home');
-// });

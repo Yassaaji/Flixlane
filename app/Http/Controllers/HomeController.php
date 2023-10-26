@@ -31,12 +31,17 @@ class HomeController extends Controller
     {
         $Auth = Auth::user();
 
-        if ($Auth->role === 'user') {
-            $films = Film::all();
-            $kategori = Kategori::all();
-            return view('user/home-full', compact('Auth', 'films', 'kategori'));
-        } elseif ($Auth->role === 'admin') {
-            return redirect()->route('admin');
+        $get_user = user::where('email',auth()->user()->email)->first();
+        if ($get_user->is_activated === 1) {
+            if ($Auth->role === 'user') {
+                $films = Film::all();
+                $kategori = Kategori::all();
+                return view('user/home-full', compact('Auth', 'films', 'kategori'));
+            } elseif ($Auth->role === 'admin') {
+                return redirect()->route('admin');
+            }
+        }else{
+            return redirect()->back();
         }
     }
 

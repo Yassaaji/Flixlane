@@ -99,7 +99,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'yassa.aji@gmail.com.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
