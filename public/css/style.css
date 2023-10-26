@@ -14072,3 +14072,13 @@ body {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.delete-icon {
+    position: absolute;
+    top: 15px;
+    right: 5px;
+}
+/* 
+.nav-item.active{
+    color: #0255d9;
+} */

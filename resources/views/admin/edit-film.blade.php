@@ -68,7 +68,7 @@
                     </div>
                 <center class="mt-5">
                     <div class="center-container">
-                        <img src="{{ asset('storage/tumnile/' . $film->thumbnile ) }}" alt="" height="100px" width="100px">
+                        <img src="{{ asset('storage/thumbnail/' . $film->thumbnile ) }}" alt="" height="100px" width="100px">
                         <input type="file" id="thumbnail" name="thumbnail" accept="image/*" class="input-file">
                         <button type="submit" class="input-submit mt-2">Upload</button>
                     </div>

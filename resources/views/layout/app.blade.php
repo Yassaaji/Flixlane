@@ -27,6 +27,15 @@
             height: 150px; /* Sesuaikan ukuran sesuai kebutuhan */
             border-radius: 50%;
         }
+        .melani{
+            color: rgb(246, 0, 0);
+        }
+
+        .active-link {
+            background-color: rgb(4, 4, 90);
+            border-radius: 15px;
+        }
+
     </style>
 
 </head>
@@ -44,12 +53,17 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                       <ul class="navbar-nav nav-menu float-none text-center">
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Home</a></li>
+                        <ul class="navbar-nav nav-menu float-none text-center">
+                            <li class="nav-item {{ Request()->is('home') ? 'active-link' : '' }}">
+                                <a class="nav-link" href="{{ url('/home') }}">Home</a>
+                            </li>
                             @foreach ($kategori as $kt)
-                            <li class="nav-item"><a class="nav-link" href="{{ Route('Anime', $kt->id) }}">{{ $kt->kategori }}</a></li>
+                                <li class="nav-item {{ Request()->is('Anime/' . $kt->id) ? 'active-link' : '' }}">
+                                    <a class="nav-link " href="{{ route('Anime', $kt->id) }}">{{ $kt->kategori }}</a>
+                                </li>
                             @endforeach
                         </ul>
+
                     </div>
                 </div>
                 <div class="col-lg-4">

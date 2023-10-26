@@ -44,6 +44,9 @@
                             <label class="form-label" for="email">Email address</label>
                             <input type="email" id="email" class="form-control form-control-lg"
                                 placeholder="Enter a valid email address" name="email">
+                                @error('email')
+                                <p class="text-danger">{{ $message}}</p>
+                            @enderror
                         </div>
 
                         <!-- Password input -->
@@ -51,6 +54,9 @@
                             <label class="form-label" for="password">Password</label>
                             <input type="password" id="password" class="form-control form-control-lg"
                                 placeholder="Enter password" name="password">
+                                @error('password')
+                                <p class="text-danger">{{ $message}}</p>
+                            @enderror
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center">

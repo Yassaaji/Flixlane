@@ -40,8 +40,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/add-to-bookmarks/{id}', [BookmarkController::class, 'create']);
     Route::get('bookmark', [BookmarkController::class, 'index']);
+    Route::delete('bookmark/{id}', [BookmarkController::class, 'destroy'])->name('bookmark.delete');
 
-    Route::put('/profile/{id}', [App\Http\Controllers\ProfileController::class, 'apa'])->name('profile.edit');
+    Route::put('/profile/{id}', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.edit');
     Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index']);
 
 });

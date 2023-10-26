@@ -95,7 +95,7 @@
                                 <h2>{{ $fl->judul }}</h2>
                               </span>
                               <span onclick="bookmark({{ $fl->id }})">
-                                <i class="fa-solid fa-plus"></i>
+                                <i style="font-size: 25px" class="fa-solid fa-plus"></i>
                               </span>
                             </div>
                             <p>{{ $fl->sinopsis }}</p>
@@ -148,7 +148,7 @@
             .catch(function(error) {
               console.error(error);
             });
-        }, 2000);
+        }, 1500);
       }
     </script>
   @endsection

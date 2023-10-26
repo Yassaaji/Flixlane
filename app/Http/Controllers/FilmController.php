@@ -157,7 +157,7 @@ class FilmController extends Controller
         $data = [
          'judul' => $request->judul,
          'minimal_usia' => $request->minimal_usia,
-         'kategori_id' => $request->kategori_id,
+         'kategori_id' => $request->kategori,
          'durasi' => $request->durasi,
          'tayang' => $request->tayang,
          'sinopsis' => $request->sinopsis,

@@ -12,9 +12,9 @@ class Film extends Model
     use HasFactory;
     protected $guarded=[];
 
-    public function kategori():BelongsTo
+    public function kategori()
     {
-        return $this->belongsTo(Kategori::class);
+        return $this->belongsTo(Kategori::class, 'kategori_id');
     }
 
     public function user()

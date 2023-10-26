@@ -40,22 +40,37 @@
                         <div class="mb-2" style="color: #eee">
                             <label for="name" class="form-label">Nama Panjang</label>
                             <input type="text" value="{{ old('name') }}" name="name" class="form-control @error('name')is-invalid @enderror">
+                            @error('name')
+                            <p class="text-danger">{{ $message}}</p>
+                        @enderror
                         </div>
                         <div class="mb-2" style="color: #eee">
-                            <label for="name" class="form-label">Username</label>
+                            <label for="username" class="form-label">Username</label>
                             <input type="text" value="{{ old('username') }}"" name="username" class="form-control @error('username')is-invalid @enderror">
+                            @error('username')
+                            <p class="text-danger">{{ $message}}</p>
+                        @enderror
                         </div>
                         <div class="mb-2" style="color: #eee">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" value="{{ old('email') }}" name="email" class="form-control @error('email')is-invalid @enderror">
+                            @error('email')
+                            <p class="text-danger">{{ $message}}</p>
+                        @enderror
                         </div>
                         <div class="mb-2" style="color: #eee">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" name="password" class="form-control @error('password')is-invalid @enderror">
+                            @error('password')
+                            <p class="text-danger">{{ $message}}</p>
+                        @enderror
                         </div>
                         <div class="mb-2" style="color: #eee">
                             <label for="re-password" class="form-label">Konfirmasi Password</label>
                             <input type="password" name="re-password" class="form-control @error('re-password')is-invalid @enderror">
+                            @error('re-password')
+                            <p class="text-danger">{{ $message}}</p>
+                        @enderror
                         </div>
                         <div class="text-center text-lg-start mt-4 pt-2">
                             <button type="submit" name="submit" class="btn btn-primary btn-lg"

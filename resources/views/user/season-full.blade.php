@@ -24,42 +24,43 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6 text-left mb-4 mt-4">
-                        <h2 style="color: white"></h2>
+                        @if (!$films->isEmpty())
+                            <h2 style="color: white">{{ $films->first()->kategori->kategori }}</h2>
+                        @else
+                            <p>Tidak ada film yang tersedia</p>
+                        @endif
                     </div>
                 </div>
                 <div class="d-flex row">
                     @forelse ($films as $data)
-                <div class="col-3">
-                <div class="card">
-                    <div class="card-body" style="padding: 0;margin:0">
-                        <a class="slide-one" href="{{ url('/video/' . $data->id) }}" style="width: 100%;margin: 0;">
-                            <div class="slide-image">
-                                <img src="{{ asset('storage/tumnile/' . $data->thumbnile) }}" alt="image">
+                        <div class="col-3">
+                            <div class="card">
+                                <div class="card-body" style="padding: 0;margin:0">
+                                    <a class="slide-one" href="{{ url('/video/' . $data->id) }}" style="width: 100%;margin: 0;">
+                                        <div class="slide-image">
+                                            <img src="{{ asset('storage/thumbnail/' . $data->thumbnile) }}" alt="image" height="300px">
+                                        </div>
+                                        <div class="slide-content">
+                                            <h2>{{ $data->judul }}<i class="bi bi-heart-fill"
+                                                    style="font-size: 15px; margin-left: 100px; padding-left: 50px"></i>
+                                                <span class="total-like" style="font-size: 15px; padding-left: 5px">250</span>
+                                            </h2>
+                                            <p>{{ $data->sinopsis }}</p>
+                                            <span class="tag">{{ $data->durasi }}</span>
+                                            <span class="tag">{{ $data->tayang }}</span>
+                                            <span class="tag"><b>{{ $data->kategori->kategori }}</b></span>
+                                            <span class="tag"><b>{{ $data->minimal_usia }}+</b></span>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="slide-content">
-                                <h2>{{ $data->judul }}<i class="bi bi-heart-fill"
-                                        style="font-size: 15px; margin-left: 100px; padding-left: 50px"></i>
-                                    <span class="total-like" style="font-size: 15px; padding-left: 5px">250</span>
-                                </h2>
-                                <p>{{ $data->sinopsis }}</p>
-                                <span class="tag">{{ $data->durasi }}</span>
-                                <span class="tag">{{ $data->tayang }}</span>
-                                <span class="tag"><b>{{ $data->kategori->kategori }}</b></span>
-                                <span class="tag"><b>{{ $data->minimal_usia }}+</b></span>
-                            </div>
-                        </a>
-                    </div>
+                        </div>
+                    @empty
+                        <div class="container-fluid py-5 px-5" style="text-align: center; position: relative;">
+                            <h1>Data Kategori Kosong</h1>
+                        </div>
+                    @endforelse
                 </div>
-                </div>
-                @empty
-                <div class="container-fluid py-5 px-5" style="text-align: center; position: relative;">
-                    <h1>Data Kategori Kosong</h1>
-                </div>
-                @endforelse
-                </div>
-                {{-- <div>
-
-                </div> --}}
             </div>
             <!-- slider wrapper -->
         </di>

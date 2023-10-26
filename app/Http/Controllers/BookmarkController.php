@@ -19,12 +19,27 @@ class BookmarkController extends Controller
     public function create($id)
     {
         $bookmark = Bookmark::where('film_id', $id)->first();
-
-        if (empty($bookmark)) {
-            Bookmark::create(['film_id' => $id]);
-            return redirect()->route('home')->with('success', 'Video berhasil ditambahkan');
-        } else {
-            return redirect()->route('home')->with('error', 'Video sudah ditambahkan');
+        switch (empty($bookmark)) {
+            case true:
+                Bookmark::create(['film_id' => $id]);
+                return redirect()->back()->with('success', 'Video berhasil ditambahkan');
+                break;
+            case false:
+                return redirect()->back()->with('success', 'Video berhasil ditambahkan');
+                break;
         }
+
+    }
+
+    public function destroy($id)
+    {
+        $bookmark = Bookmark::find($id);
+
+        if (!$bookmark) {
+            return redirect()->back()->with('error', 'Bookmark tidak ditemukan.');
+        }
+
+        $bookmark->delete();
+        return redirect()->back()->with('success', 'Bookmark berhasil dihapus.');
     }
 }

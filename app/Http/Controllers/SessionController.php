@@ -62,13 +62,14 @@ class SessionController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:users,name',
             'username' => 'required',
             'email' => 'required|email|unique:users,email', // Ubah aturan validasi di sini
             'password' => 'required|min:6',
             're-password' => 'required|same:password', // Menambahkan validasi konfirmasi password
         ], [
             'name.required' => 'Nama Wajib diisi',
+            'name.unique' => 'Nama Panjang sudah digunakan',
             'username.required' => 'Nama Wajib diisi',
             'email.required' => 'Email wajib diisi',
             'email.email' => 'Silahkan masukkan email yang valid',
