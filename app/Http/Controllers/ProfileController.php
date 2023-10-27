@@ -62,8 +62,8 @@ class ProfileController extends Controller
             'name.max' => 'Name max length is 100 characters',
             'username.required' => 'Username wajib di isi',
             'username.max' => 'Username max length is 100 characters',
-            'profile.image' => 'The uploaded file must be an image.',
-            'profile.mimes' => 'Supported image formats are: jpeg, png, jpg',
+            'profile.image' => 'File yang diupload harus berupa gambar.',
+            'profile.mimes' => 'Format gambar yang didukung adalah: jpeg, png, jpg',
             'profile.max' => 'Ukuran Foto melebihi maksimal',
         ]);
 

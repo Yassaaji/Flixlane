@@ -129,8 +129,8 @@ class FilmController extends Controller
             'durasi'=> 'max:10',
             'tayang' => 'date',
             'sinopsis' => 'string|max:1000',
-            'thumbnile' => 'image|max:5000',
-            'vidio' => 'file|mimetypes:video/mp4',
+            'thumbnail' => 'required|image|max:5000|mimes:jpeg,png,jpg',
+            'video' => 'mimes:mp4',
         ],[
             'judul.string' => 'judul harus menggunakan huruf',
             'judul.max' => 'judul maksimal 100 karakter',
@@ -141,9 +141,8 @@ class FilmController extends Controller
             'sinopsis' => 'sinopsis harus berupa huruf',
             'sinopsis.max' => 'sinopsis maksimal 1000 karakter',
             'thumbnile.image' => 'thumbnile harus berupa gambar',
-            'thumbnile.max' => 'thumbnile maksimal 50MB',
             'vidio.file' => 'Berkas harus berupa video.',
-            'vidio.mimetypes' => 'Berkas harus berupa video MP4.',
+            'vidio.mimes' => 'Berkas harus berupa video MP4.',
         ]);
 
         $filmLama = Film::where('id', $id)->first();

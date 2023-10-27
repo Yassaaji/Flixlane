@@ -63,6 +63,9 @@
                                 <td style="color: white">Profile Picture:</td>
                                 <td>
                                     <input type="file" name="profile" class="form-control" id="profile-picture" >
+                                    @error('profile')
+                                        <p class="text-danger">{{ $message}}</p>
+                                    @enderror
                                 </td>
                             </tr>
                             <tr>
