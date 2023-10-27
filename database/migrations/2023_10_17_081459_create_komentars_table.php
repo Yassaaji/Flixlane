@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('komentars', function (Blueprint $table) {
             $table->id();
-              // $table->id('post_id');
             $table->foreignId('film_id');
             $table->foreignId('user_id');
+            $table->integer('parent_id')->nullable();
             $table->date('tanggal');
             $table->text('komentar');
             $table->timestamps();

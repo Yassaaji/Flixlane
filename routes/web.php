@@ -37,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/komentar/create', [KomentarController::class, 'create'])->name('komentar.create');
     Route::get('/komentar/{id}', [KomentarController::class, 'index'])->name('komentar.index');
     Route::delete('/komentar/delete/{komentar}', [KomentarController::class, 'destroy'])->name('komentar.delete');
+    Route::post('/reply/{id}',[KomentarController::class,'reply'])->name('reply.komen');
 
     Route::get('/add-to-bookmarks/{id}', [BookmarkController::class, 'create']);
     Route::get('bookmark', [BookmarkController::class, 'index']);

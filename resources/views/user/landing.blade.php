@@ -49,7 +49,7 @@
         <div class="banner-wraper text-center" id="Banner" style="background-image: url(images/landing-banner.png);">
             <div class="container ">
                 <div class="row">
-                    <div class="col-xl-8 offset-xl-2 text-center">
+                    <div class="col-xl-8 offset-xl-2 entext-center">
                         <img src="images/icon142.png" alt="icon" class="play-bttn">
                         <h2>A digital agency for brands that want more.</h2>
                         <h4>A full-service branding & digital agency based in London</h4>

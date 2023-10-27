@@ -124,13 +124,66 @@
                             <div class="tanggal-chat">
                                 <p>{{ date('d F Y', strtotime($komentar->tanggal)) }}</p>
                             </div>
+                            <button onclick="reply({{ $komentar->id }})" class="btn btn-light-warning font-medium text-warning px-4 rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{ $komentar->id }}" aria-expanded="true" aria-controls="collapseExample{{ $komentar->id }}">
+                                Lihat Komentar
+                              </button>
+                              <div class="collapse " id="{{ $komentar->id }}" style="">
+                                <div class="card card-body">
+                                    {{-- Foreach Komentar --}}
+
+                                    <form id="addKomentar" action="{{ route('reply.komen', $komentar->id) }}" method="post">
+                                        @csrf
+                                        <input type="hidden" id="film_id" name="film_id" value="{{ $id }}">
+                                        <div class="card mb-3 p-2">
+                                          <div class="form-floating d-flex">
+                                            <input type="text" name="komentar" id="komentar" class="form-control me-2" id="floatingInput" placeholder="Komentar">
+                                            <label for="floatingInput"></label>
+                                            <button type="submit" name="submit" class="btn btn-primary"><i class="bi bi-send-fill"></i></button>
+                                          </div>
+                                        </div>
+                                      </form>
+                                      @foreach ($komentar->reply($komentar->id) as $item)
+                                      <div class="card mb-4 comment-{{ $item->id }}">
+                                        <div class="chat px-4 pt-3 d-flex justify-content-between">
+                                            <div class="left d-flex">
+                                                <div class="profile me-3">
+                                                    <div class="photo rounded-circle" style="margin-right: 10px">
+                                                        @if ($item->user->profile)
+                                                        <img src="{{ asset('storage/' . $item->user->profile) }}" alt="Profile Image" width="45px" height="45px">
+                                                        @else
+                                                        <img src="{{ asset('images/profiledefault.jpg') }}" alt="Default Profile Image">
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="chat-column">
+                                                    <div class="username">
+                                                        <p>{{ $item->user->name }}</p>
+                                                    </div>
+                                                    <div class="text-chat">
+                                                        <p>{{ $item->komentar }}</p>
+                                                    </div>
+                                                    <div class="tanggal-chat">
+                                                        <p>{{ date('d F Y', strtotime($item->tanggal)) }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </div>
+                                      @endforeach
+
+
+                                    {{-- Form --}}
+
+
+                                </div>
+                              </div>
                         </div>
                     </div>
                     <div class="right">
                         <div class="action">
                             @if (auth()->check() && $komentar->user_id == auth()->user()->id)
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button  class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="bi bi-three-dots-vertical"></i>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -163,6 +216,19 @@
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{ asset('js/scripts.js')}}"></script>
     <script src="{{ asset('js/video-player.js') }}"></script>
+
+    <script>
+          function reply(id){
+                    let btn = false;
+
+                    if(!btn){
+                        const reply = document.getElementById(id);
+                        reply.classList.toggle('show');
+                        btn = !btn
+                    }
+                }
+    </script>
+
     @endsection
 </body>
 

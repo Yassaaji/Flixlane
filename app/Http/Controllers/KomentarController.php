@@ -53,7 +53,7 @@ class KomentarController extends Controller
             'komentar' => $request->input('komentar'),
             'tanggal' => now()
         ]);
-
+// a
         $komentar->save();
 
         $film = Film::findOrFail($request->film_id);
@@ -103,6 +103,18 @@ class KomentarController extends Controller
     public function update(Request $request, Komentar $komentar)
     {
         //
+    }
+
+    public function reply(Request $request, string $id ){
+        Komentar::create([
+            'user_id' => Auth::user()->id,
+            'film_id' => $request->input('film_id'),
+            'parent_id' => $id,
+            'komentar' => $request->input('komentar'),
+            'tanggal' => now()
+
+        ]);
+        return redirect()->back();
     }
 
     /**
