@@ -20,8 +20,8 @@ class Komentar extends Model
         return $this->belongsTo(Post::class,'film_id');
     }
 
-    public function reply(string $id){
-        return Komentar::where('film_id', $id)->where('parent_id',$id)->get();
+    public function reply(int $id, int $film){
+        return Komentar::where('film_id', $film)->where('parent_id',$id)->get();
     }
 
 }

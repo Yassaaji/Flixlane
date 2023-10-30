@@ -114,7 +114,7 @@ class KomentarController extends Controller
             'tanggal' => now()
 
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success', "Berhasil menambahkan komentar");
     }
 
     /**

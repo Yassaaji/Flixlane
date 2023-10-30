@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vstream - Media Landing Page</title>
+  <title>Vstream - Home page</title>
 
   <link rel="stylesheet" href="/css/themify-icons.css">
   <!-- Favicon icon -->
@@ -48,7 +48,7 @@
                       <h2>{{ $fl->judul }}</h2>
                       <span class="tag">{{ $fl->tayang }}</span>
                       <span class="tag"><b>{{ $fl->minimal_usia }}+</b></span>
-                      <span class="tag">{{ $fl->durasi }}</span>
+                      <span class="tag">{{ $fl->durasi }} menit</span>
                       <span class="tag">{{ $fl->kategori->kategori }}</span>
                       <span class="tag"></span>
                       <p>{{ $fl->sinopsis }}</p>
@@ -97,7 +97,7 @@
                               </span>
                             </div>
                             <p>{{ $fl->sinopsis }}</p>
-                            <span class="tag">{{ $fl->durasi }}</span>
+                            <span class="tag">{{ $fl->durasi }} menit</span>
                             <span class="tag">{{ date('d F Y', strtotime($fl->tayang)) }}</span>
                             <span class="tag"><b>{{ $fl->minimal_usia }}+</b></span>
                             <span class="tag"><b>{{ $fl->kategori->kategori }}</b></span>

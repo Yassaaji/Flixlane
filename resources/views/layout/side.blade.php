@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard ADMIN</title>
+    <link rel="stylesheet" href="/css/themify-icons.css">
+    <!-- Favicon icon -->
+    <link rel="icon" type="/image/png" sizes="16x16" href="/images/favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
@@ -18,9 +21,9 @@
         <span id="show-label-menu">using only small screen</span>
         <div id="left-menu" style="background-color:rgb(6, 6, 54)">
             <ul>
-                <li><a href="{{ route('admin') }}" class="nav-link text-white {{ request()->is('admin') ? 'active' : '' }}"><i class="fas fa-th"></i><span>Dashboard</span></a></li>
-                <li><a href="{{ route('tambahfilm') }}"><i class="fas fa-fire"></i><span>Film</span></a></li>
-                <li><a href="{{ route('daftarfilm') }}"><i class="fas fa-th"></i><span>DaftarFilm</span></a></li>
+                <li><a href="{{ route('admin') }}" class="nav-link text-white {{ request()->is('admin') ? 'active' : '' }}"><i class="fa fa-th"></i><span>Dashboard</span></a></li>
+                <li><a href="{{ route('tambahfilm') }}"><i class="fa fa-fire"></i><span>Film</span></a></li>
+                <li><a href="{{ route('daftarfilm') }}"><i class="fas fa-film"></i><span>DaftarFilm</span></a></li>
                 <li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
